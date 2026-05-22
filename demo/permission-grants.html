@@ -192,6 +192,8 @@
 
       <a href="permission-grants.html#role-grants-list" class="">edit</a>
 
+      <a href="permission-grants.html#role-grants-list" class="">read-secrets</a>
+
       <a href="permission-grants.html#role-grants-list" class="">system:image-builder</a>
 
       <a href="permission-grants.html#role-grants-list" class="">system:image-puller</a>
@@ -203,12 +205,38 @@
            data-filter-target="#grants-table" data-filter-counter="#grants-counter">
   </div>
 
-  <p class="dim"><span id="grants-counter">12</span> grants</p>
+  <p class="dim"><span id="grants-counter">13</span> grants</p>
 
 
   <table class="dense sortable" id="grants-table">
     <thead><tr><th>Created</th><th>Role</th><th>Tier</th><th>Subject</th><th>Scope</th><th>Binding</th></tr></thead>
     <tbody>
+
+      <tr >
+        <td class="mono dim" data-sort="2025-03-10T09:10:00Z" title="2025-03-10T09:10:00Z">1y</td>
+        <td>
+
+            <a class="mono" href="role-payments-prod-read-secrets.html">read-secrets</a>
+
+          <span class="dim mono">(Role)</span>
+        </td>
+        <td class="mono" data-sort="0">
+          custom
+        </td>
+        <td>
+          <span class="kind-tag kind-group">Group</span>
+          <a class="mono" href="subject-group-engineers.html">engineers</a>
+
+
+
+
+
+
+
+        </td>
+        <td class="mono dim"><a href="namespace-payments-prod.html">payments-prod</a></td>
+        <td class="mono">RoleBinding/secret-readers</td>
+      </tr>
 
       <tr >
         <td class="mono dim" data-sort="2025-01-10T09:57:00Z" title="2025-01-10T09:57:00Z">1y</td>

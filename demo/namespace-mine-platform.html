@@ -76,7 +76,7 @@
   </h1>
   <p class="lede">
     Created by <span class="mono">alice</span> ·
-    2025-01-10 09:20:00 (496d ago)
+    2025-01-10 09:20:00 (497d ago)
   </p>
 
 
@@ -407,28 +407,28 @@
 
 
 <section id="ns-access">
-  <h2>Subjects with access here (16)</h2>
+  <h2>Subjects with access here (18)</h2>
   <p class="lede">Subjects with namespace-effective access here — local RoleBindings, cluster-wide bindings with namespaced resource rules, cross-namespace SAs, groups, and system grants — in one table. Sorted by power so cluster-admin grants surface first. Filter by access bucket or subject kind.</p>
 
 
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="namespace-mine-platform.html#ns-access" class="">Yours <span class="dim mono">14</span></a>
+      <a href="namespace-mine-platform.html#ns-access" class="">Yours <span class="dim mono">16</span></a>
       <a href="namespace-mine-platform.html#ns-access" class="" title="Subjects whose namespace could not be classified — review">Unclassified <span class="dim mono">0</span></a>
       <a href="namespace-mine-platform.html#ns-access" class="">Baseline <span class="dim mono">2</span></a>
-      <a href="namespace-mine-platform.html#ns-access" class="active">All <span class="dim mono">16</span></a>
+      <a href="namespace-mine-platform.html#ns-access" class="active">All <span class="dim mono">18</span></a>
     </div>
   </div>
 
   <div class="filterbar inline">
-    <a href="namespace-mine-platform.html#ns-access" class="">All kinds <span class="dim mono">16</span></a>
-    <a href="namespace-mine-platform.html#ns-access" class="active">Users <span class="dim mono">8</span></a>
+    <a href="namespace-mine-platform.html#ns-access" class="">All kinds <span class="dim mono">18</span></a>
+    <a href="namespace-mine-platform.html#ns-access" class="active">Users <span class="dim mono">10</span></a>
     <a href="namespace-mine-platform.html#ns-access" class="">Groups <span class="dim mono">5</span></a>
     <a href="namespace-mine-platform.html#ns-access" class="">ServiceAccounts <span class="dim mono">3</span></a>
   </div>
 
-  <p class="dim">8 rows shown · 16 total
+  <p class="dim">10 rows shown · 18 total
 
 
   </p>
@@ -480,6 +480,48 @@
         <td class="mono dim">cluster</td>
         <td class="mono">ClusterRoleBinding/ghost-future-employee</td>
         <td class="mono dim">ClusterRoleBinding</td>
+      </tr>
+
+      <tr >
+        <td>
+          <span class="kind-tag kind-user">User</span>
+          <a class="mono" href="subject-user-alice.html">alice</a>
+
+
+
+
+
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+        </td>
+        <td>
+          <a class="mono" href="clusterrole-admin.html"><span class="badge badge-priv">admin</span></a>
+
+        </td>
+        <td class="mono dim">namespace:mine-platform</td>
+        <td class="mono">RoleBinding/admin-rb</td>
+        <td class="mono dim">Local RoleBinding</td>
+      </tr>
+
+      <tr >
+        <td>
+          <span class="kind-tag kind-user">User</span>
+          <a class="mono" href="subject-user-alice.html">alice</a>
+
+
+
+
+
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+        </td>
+        <td>
+          <a class="mono" href="clusterrole-admin.html"><span class="badge badge-priv">admin</span></a>
+
+        </td>
+        <td class="mono dim">namespace:mine-platform</td>
+        <td class="mono">RoleBinding/admin-rb-copy</td>
+        <td class="mono dim">Local RoleBinding</td>
       </tr>
 
       <tr >

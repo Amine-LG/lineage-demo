@@ -276,7 +276,7 @@
 
 
 
-  <h2 id="scc-subjects">Subjects that can use this SCC (3 of 14)</h2>
+  <h2 id="scc-subjects">Subjects that can use this SCC (4 of 15)</h2>
   <p class="lede">
     Direct SCC grants and RBAC <code>use</code> grants. Ghost ServiceAccounts
     here are potential admissions: recreating the same SA name reactivates
@@ -286,16 +286,16 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="scc-anyuid.html#scc-subjects" class="">Yours <span class="dim mono">13</span></a>
+      <a href="scc-anyuid.html#scc-subjects" class="">Yours <span class="dim mono">14</span></a>
       <a href="scc-anyuid.html#scc-subjects" class="" title="Subjects or RBAC use grants tied to an unclassified namespace">Unclassified <span class="dim mono">0</span></a>
       <a href="scc-anyuid.html#scc-subjects" class="">Baseline <span class="dim mono">1</span></a>
-      <a href="scc-anyuid.html#scc-subjects" class="active">All <span class="dim mono">14</span></a>
+      <a href="scc-anyuid.html#scc-subjects" class="active">All <span class="dim mono">15</span></a>
     </div>
   </div>
 
   <div class="filterbar inline">
-    <a href="scc-anyuid.html#scc-subjects" class="">All kinds <span class="dim mono">14</span></a>
-    <a href="scc-anyuid.html#scc-subjects" class="active">Users <span class="dim mono">3</span></a>
+    <a href="scc-anyuid.html#scc-subjects" class="">All kinds <span class="dim mono">15</span></a>
+    <a href="scc-anyuid.html#scc-subjects" class="active">Users <span class="dim mono">4</span></a>
     <a href="scc-anyuid.html#scc-subjects" class="">Groups <span class="dim mono">4</span></a>
     <a href="scc-anyuid.html#scc-subjects" class="">ServiceAccounts <span class="dim mono">7</span></a>
   </div>
@@ -351,6 +351,31 @@
         </td>
         <td>
           future user with this name would inherit access that can use this SCC
+
+        </td>
+      </tr>
+
+      <tr >
+        <td>
+          <span class="kind-tag kind-user">User</span>
+
+            <a class="mono" href="subject-user-alice.html">alice</a>
+
+
+
+
+
+
+        </td>
+        <td class="mono" data-sort="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">user present</td>
+        <td>
+          <span class="mono">scc.groups/engineers</span>
+          <span class="dim">(SCC group list)</span>
+
+        </td>
+        <td>
+          can use this SCC now if authenticated
 
         </td>
       </tr>
