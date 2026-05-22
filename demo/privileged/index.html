@@ -78,7 +78,7 @@
 
 <section class="callout-priv">
   <h2>Resurrectable ServiceAccount identities (2)</h2>
-  <p>Critical / high-severity grants — RBAC bindings or SCC user lists — addressed at <code>system:serviceaccount:&lt;ns&gt;:&lt;name&gt;</code> for which the SA is gone. Recreating the name reactivates the privilege. <a href="identity-audit.html#resurrectable">All severities →</a></p>
+  <p>Critical / high-severity grants — RBAC bindings or SCC user lists — addressed at <code>system:serviceaccount:&lt;ns&gt;:&lt;name&gt;</code> for which the SA is gone. Recreating the name reactivates the privilege. <a href="identity-audit-severity-critical.html#resurrectable">All severities →</a></p>
 
 
 
@@ -181,10 +181,10 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="privileged.html#privileged-subjects" class="active">Yours <span class="dim mono">7</span></a>
-      <a href="privileged.html#privileged-subjects" class="" title="Privileged bindings whose subject or binding lives in an unclassified namespace — review">Unclassified <span class="dim mono">0</span></a>
-      <a href="privileged.html#privileged-subjects" class="">Baseline <span class="dim mono">1</span></a>
-      <a href="privileged.html#privileged-subjects" class="">All <span class="dim mono">8</span></a>
+      <a href="privileged-bucket-yours.html#privileged-subjects" class="active">Yours <span class="dim mono">7</span></a>
+      <a href="privileged-bucket-unknown.html#privileged-subjects" class="" title="Privileged bindings whose subject or binding lives in an unclassified namespace — review">Unclassified <span class="dim mono">0</span></a>
+      <a href="privileged-bucket-baseline.html#privileged-subjects" class="">Baseline <span class="dim mono">1</span></a>
+      <a href="privileged-bucket-all.html#privileged-subjects" class="">All <span class="dim mono">8</span></a>
     </div>
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#priv-table" data-filter-counter="#priv-counter">

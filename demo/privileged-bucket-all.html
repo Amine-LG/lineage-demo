@@ -180,16 +180,16 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="privileged-bucket-yours.html#privileged-subjects" class="active">Yours <span class="dim mono">7</span></a>
+      <a href="privileged-bucket-yours.html#privileged-subjects" class="">Yours <span class="dim mono">7</span></a>
       <a href="privileged-bucket-unknown.html#privileged-subjects" class="" title="Privileged bindings whose subject or binding lives in an unclassified namespace — review">Unclassified <span class="dim mono">0</span></a>
       <a href="privileged-bucket-baseline.html#privileged-subjects" class="">Baseline <span class="dim mono">1</span></a>
-      <a href="privileged-bucket-all.html#privileged-subjects" class="">All <span class="dim mono">8</span></a>
+      <a href="privileged-bucket-all.html#privileged-subjects" class="active">All <span class="dim mono">8</span></a>
     </div>
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#priv-table" data-filter-counter="#priv-counter">
   </div>
 
-  <p class="dim"><span id="priv-counter">7</span> bindings</p>
+  <p class="dim"><span id="priv-counter">8</span> bindings</p>
 
 
   <table class="dense sortable" id="priv-table">
@@ -320,6 +320,24 @@
         <td class="mono">ClusterRoleBinding/platform-admins-cluster-admin</td>
         <td class="mono dim">cluster-wide</td>
         <td class="mono dim" data-sort="2025-01-10T09:45:00Z" title="2025-01-10T09:45:00Z">1y</td>
+      </tr>
+
+      <tr class="row-baseline">
+        <td><a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a></td>
+        <td>
+          <span class="kind-tag kind-group">Group</span>
+          <a class="mono" href="subject-group-system-masters.html">system:masters</a>
+
+
+
+
+
+
+
+        </td>
+        <td class="mono">ClusterRoleBinding/cluster-admin</td>
+        <td class="mono dim">cluster-wide</td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
       </tr>
 
     </tbody>

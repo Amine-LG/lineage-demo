@@ -137,7 +137,7 @@
 
 
 
-    <a class="counter counter-priv" href="identity-audit.html#resurrectable">
+    <a class="counter counter-priv" href="identity-audit-severity-critical.html#resurrectable">
       <div class="num">2</div>
       <div class="lab">critical resurrectable</div>
       <div class="counter-sub">2 SAs · 0 SCC groups</div>
@@ -158,7 +158,7 @@
 <section class="counter-group metric-section metric-permissions">
   <h2><span>Access paths</span><small>Grants, roles, and duplicate bindings.</small></h2>
   <div class="counter-grid">
-    <a class="counter counter-priv" href="privileged.html#privileged-subjects">
+    <a class="counter counter-priv" href="privileged-bucket-yours.html#privileged-subjects">
       <div class="num">7</div>
       <div class="lab">privileged bindings</div>
       <div class="counter-sub">of 8 total · 1 baseline</div>
@@ -184,12 +184,12 @@
 <section class="counter-group metric-section metric-workloads">
   <h2><span>Workloads</span><small>Namespaces, pods, ServiceAccounts, SCCs.</small></h2>
   <div class="counter-grid">
-    <a class="counter" href="namespaces.html#namespaces-list">
+    <a class="counter" href="namespaces-category-all.html#namespaces-list">
       <div class="num">5</div>
       <div class="lab">namespaces</div>
       <div class="counter-sub">of 9 total</div>
     </a>
-    <a class="counter" href="namespaces.html#namespaces-list">
+    <a class="counter" href="namespaces-category-project.html#namespaces-list">
       <div class="num">4</div>
       <div class="lab">pods</div>
       <div class="counter-sub">of 5 total</div>
@@ -210,22 +210,22 @@
 <section class="counter-group metric-section metric-images">
   <h2><span>Images</span><small>Running images, registries, tag drift.</small></h2>
   <div class="counter-grid">
-    <a class="counter" href="images.html#images-list">
+    <a class="counter" href="images-bucket-yours.html#images-list">
       <div class="num">4</div>
       <div class="lab">images</div>
       <div class="counter-sub">of 5 total</div>
     </a>
-    <a class="counter" href="images.html#imagestreams">
+    <a class="counter" href="images-bucket-yours.html#imagestreams">
       <div class="num">2</div>
       <div class="lab">ImageStreams</div>
       <div class="counter-sub">of 2 total</div>
     </a>
-    <a class="counter" href="images.html#registries">
+    <a class="counter" href="images-bucket-yours.html#registries">
       <div class="num">4</div>
       <div class="lab">registries</div>
       <div class="counter-sub">of 4 total</div>
     </a>
-    <a class="counter counter-warn" href="images.html#image-drift">
+    <a class="counter counter-warn" href="images-bucket-yours.html#image-drift">
       <div class="num">1</div>
       <div class="lab">digest drift</div>
       <div class="counter-sub">tag → multiple digests</div>
@@ -238,7 +238,7 @@
 
 <section class="callout-priv table-panel table-panel-critical">
   <h2>Resurrectable ServiceAccount identities (2)</h2>
-  <p>Absent ServiceAccount names with surviving grants. Recreating the name reactivates access. <a href="identity-audit.html#resurrectable">Open Identity Audit →</a></p>
+  <p>Absent ServiceAccount names with surviving grants. Recreating the name reactivates access. <a href="identity-audit-severity-critical.html#resurrectable">Open Identity Audit →</a></p>
 
 
 
@@ -338,7 +338,7 @@
 
 <section class="callout-priv table-panel table-panel-critical">
   <h2>Privileged subjects (7)</h2>
-  <p>Subjects bound to high-impact roles. <a href="privileged.html#privileged-subjects">See all →</a> · <a href="privileged.html#privileged-subjects">Baseline (1)</a></p>
+  <p>Subjects bound to high-impact roles. <a href="privileged-bucket-yours.html#privileged-subjects">See all →</a> · <a href="privileged-bucket-baseline.html#privileged-subjects">Baseline (1)</a></p>
   <table class="dense sortable">
     <thead><tr><th>Role</th><th>Subject</th><th>Scope</th><th>Binding</th></tr></thead>
     <tbody>

@@ -96,9 +96,9 @@
 
   <div class="filterbar">
     <a href="identity-audit-severity-all.html#resurrectable" class="">All <span class="dim mono">2</span></a>
-    <a href="identity-audit-severity-critical.html#resurrectable" class="active">Critical <span class="dim mono">2</span></a>
+    <a href="identity-audit-severity-critical.html#resurrectable" class="">Critical <span class="dim mono">2</span></a>
     <a href="identity-audit-severity-high.html#resurrectable" class="">High <span class="dim mono">0</span></a>
-    <a href="identity-audit-severity-medium.html#resurrectable" class="">Medium <span class="dim mono">0</span></a>
+    <a href="identity-audit-severity-medium.html#resurrectable" class="active">Medium <span class="dim mono">0</span></a>
     <a href="identity-audit-severity-low.html#resurrectable" class="">Low <span class="dim mono">0</span></a>
   </div>
 
@@ -114,106 +114,9 @@
 
 
   <section id="resurrectable-serviceaccounts">
-    <h3>ServiceAccount identities <span class="dim">(2)</span></h3>
+    <h3>ServiceAccount identities <span class="dim">(0)</span></h3>
 
-    <div class="table-controls">
-      <input type="search" class="table-filter" placeholder="Filter table..."
-             aria-label="Filter resurrectable ServiceAccounts"
-             data-filter-target="#resurrectable-table">
-    </div>
-
-
-
-<table class="dense sortable" id="resurrectable-table">
-
-  <thead><tr>
-    <th>Principal</th><th>Severity</th><th>Created</th><th>Namespace state</th><th>Surviving grants</th>
-  </tr></thead>
-  <tbody>
-
-    <tr class="row-priv">
-      <td class="mono">
-        <a href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">system:serviceaccount:legacy-pipelines:runner</a>
-        <span class="badge badge-warn">resurrectable</span>
-        <span class="badge badge-priv">cluster-admin</span>
-        <span class="badge badge-priv">privileged SCC</span>
-
-      </td>
-      <td data-sort="critical">
-        <span class="badge badge-priv">critical</span>
-
-      </td>
-      <td class="mono" data-sort="2025-01-10T09:48:00Z">1y</td>
-      <td>
-        <span class="badge badge-priv">ns deleted</span> <span class="dim">recreate ns + SA reactivates</span>
-      </td>
-      <td class="mono">
-
-        <div>
-          <span class="kind-tag kind-clusterrolebinding">ClusterRoleBinding</span>legacy-runner-admin
-          →
-            <a href="clusterrole-cluster-admin.html"><span class="badge badge-priv">cluster-admin</span></a>
-
-
-          <span class="dim">(RBAC)</span>
-        </div>
-
-        <div>
-          <span class="kind-tag kind-scc">SCC</span>privileged
-          →
-            <a href="scc-privileged.html"><span class="badge badge-priv">privileged</span></a>
-
-
-          <span class="dim">(SCC user list)</span>
-        </div>
-
-      </td>
-    </tr>
-
-    <tr class="row-priv">
-      <td class="mono">
-        <a href="subject-serviceaccount-pipeline-namespace-ci.html">system:serviceaccount:ci:pipeline</a>
-        <span class="badge badge-warn">resurrectable</span>
-        <span class="badge badge-priv">cluster-admin</span>
-
-
-      </td>
-      <td data-sort="critical">
-        <span class="badge badge-priv">critical</span>
-
-      </td>
-      <td class="mono" data-sort="2025-01-10T09:47:00Z">1y</td>
-      <td>
-        <span class="badge badge-info">ns present</span> <span class="dim">SA missing</span>
-
-      </td>
-      <td class="mono">
-
-        <div>
-          <span class="kind-tag kind-clusterrolebinding">ClusterRoleBinding</span>ci-pipeline-clusteradmin
-          →
-            <a href="clusterrole-cluster-admin.html"><span class="badge badge-priv">cluster-admin</span></a>
-
-
-          <span class="dim">(RBAC)</span>
-        </div>
-
-        <div>
-          <span class="kind-tag kind-scc">SCC</span>anyuid
-          →
-            <a href="scc-anyuid.html">anyuid</a>
-
-
-          <span class="dim">(SCC user list)</span>
-        </div>
-
-      </td>
-    </tr>
-
-  </tbody>
-</table>
-
-
+      <p class="dim">No medium resurrectable ServiceAccount identities.</p>
 
   </section>
 

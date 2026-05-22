@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lineage — Roles</title>
+  <title>Lineage — Images</title>
   <script>
     (function () {
       try {
@@ -35,9 +35,9 @@
       <a href="identity-audit.html" >Identity</a>
       <a href="subjects.html" >Subjects</a>
       <a href="namespaces.html" >Namespaces</a>
-      <a href="privileged.html" class="active">Permissions</a>
+      <a href="privileged.html" >Permissions</a>
       <a href="sccs.html" >SCCs</a>
-      <a href="images.html" >Images</a>
+      <a href="images.html" class="active">Images</a>
       <a href="setup.html" >Setup</a>
       <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
         <span class="refresh-icon" aria-hidden="true">↻</span>
@@ -64,82 +64,87 @@
 <main>
   <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
 
-<div class="subnav">
-  <a href="privileged.html">Privileged</a>
-  <a href="clusterroles.html">ClusterRoles</a>
-  <a href="roles.html" class="active">Roles</a>
-  <a href="permission-grants.html">Role grants</a>
-  <a href="cross-namespace.html">Cross-namespace</a>
-  <a href="who-can.html">Who can</a>
-  <a href="aggregated.html">Aggregated</a>
-</div>
-
-<section id="roles-list">
-  <h1>Roles (3 of 3)</h1>
-  <p class="lede">Namespaced <code>Role</code> objects. These define permissions scoped to a single namespace, separate from cluster-wide ClusterRoles.</p>
-
-
+<section id="images-overview">
+  <h1>Container images</h1>
+  <p class="lede">Every image running in the cluster, grouped by registry. Catches external images you didn't expect, internal-registry images that depend on ImageStreams, and shows pod attribution end-to-end.</p>
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="roles-bucket-yours.html#roles-list" class="active">Yours <span class="dim mono">3</span></a>
-      <a href="roles-bucket-unknown.html#roles-list" class="" title="Roles in namespaces that no signal could classify confidently — review">Unclassified <span class="dim mono">0</span></a>
-      <a href="roles-bucket-baseline.html#roles-list" class="">Baseline <span class="dim mono">0</span></a>
-      <a href="roles-bucket-all.html#roles-list" class="">All <span class="dim mono">3</span></a>
+      <a href="images-bucket-yours.html#images-overview" class="" title="Project image refs and ImageStreams">Yours <span class="dim mono">6</span></a>
+      <a href="images-bucket-unknown.html#images-overview" class="" title="Image refs and ImageStreams tied to unclassified namespaces — review">Unclassified <span class="dim mono">0</span></a>
+      <a href="images-bucket-baseline.html#images-overview" class="active" title="Baseline image refs and ImageStreams">Baseline <span class="dim mono">1</span></a>
+      <a href="images-bucket-all.html#images-overview" class="" title="All image refs and ImageStreams">All <span class="dim mono">7</span></a>
     </div>
-    <input type="search" class="search mono" placeholder="filter…"
-           data-filter-target="#roles-table" data-filter-counter="#roles-counter">
   </div>
+</section>
 
-  <p class="dim"><span id="roles-counter">3</span> roles</p>
+<section id="image-drift" >
+
+  <h2>Stale-by-digest images (0)</h2>
+  <p class="lede">No tag drift detected in this view. Every running spec image reference resolves to a single digest across all pods that use it.</p>
+
+</section>
 
 
-  <table class="dense sortable" id="roles-table">
+<section id="registries">
+  <h2>Registries (1 of 4)</h2>
+  <p class="lede">Which container registries this cluster pulls from. Public registries used by your workloads are particularly worth knowing about.</p>
+  <table class="dense sortable">
     <thead><tr>
-      <th>Name</th><th>Namespace</th><th>Bindings</th><th>Rules</th><th>Verbs (top)</th><th>Created</th>
+      <th>Registry</th><th>Type</th><th>Images</th><th>Pods using</th><th>Used by yours</th>
     </tr></thead>
     <tbody>
 
       <tr >
-        <td class="mono"><a href="role-payments-prod-read-secrets.html">read-secrets</a></td>
-        <td class="mono"><a href="namespace-payments-prod.html">payments-prod</a></td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono dim">
-          get, list
+        <td class="mono">quay.io</td>
+        <td>
+          <span class="badge badge-sys">Red Hat</span>
 
         </td>
-        <td class="mono dim" data-sort="2025-03-10T09:05:00Z" title="2025-03-10T09:05:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono"><a href="role-mine-platform-deployment-restarter.html">deployment-restarter</a></td>
-        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono dim">
-          get, patch
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-10T09:41:00Z" title="2025-01-10T09:41:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono"><a href="role-mine-platform-config-reader.html">config-reader</a></td>
-        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono dim">
-          get, list, watch
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-10T09:40:00Z" title="2025-01-10T09:40:00Z">1y</td>
+        <td class="mono">2</td>
+        <td class="mono">2</td>
+        <td><strong>yes</strong></td>
       </tr>
 
     </tbody>
   </table>
-
 </section>
+
+
+<section id="images-list">
+  <h2>Images (1 of 5)</h2>
+  <div class="toolbar">
+    <input type="search" class="search mono" placeholder="filter image, registry, namespace…"
+           data-filter-target="#images-table" data-filter-counter="#images-counter">
+  </div>
+  <p class="dim"><span id="images-counter">1</span> matching</p>
+  <table class="dense sortable" id="images-table">
+    <thead><tr>
+      <th>Image</th><th>Registry</th><th>Pods</th><th>Used in</th>
+    </tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono image-cell" title="quay.io/openshift-release-dev/ocp-release@sha256:fake"><a href="image-ref-quay-io-openshift-release-dev-ocp-release-sha256-fake.html">quay.io/openshift-release-dev/ocp-release@sha256:fake</a></td>
+        <td class="mono">quay.io
+          <span class="badge badge-sys">RH</span>
+
+        </td>
+        <td class="mono" data-sort="1">1</td>
+        <td class="mono">
+
+          <a href="namespace-openshift-authentication.html">openshift-authentication</a>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+
+
+
 
 </main>
 <footer>

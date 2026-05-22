@@ -180,135 +180,27 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="privileged-bucket-yours.html#privileged-subjects" class="active">Yours <span class="dim mono">7</span></a>
+      <a href="privileged-bucket-yours.html#privileged-subjects" class="">Yours <span class="dim mono">7</span></a>
       <a href="privileged-bucket-unknown.html#privileged-subjects" class="" title="Privileged bindings whose subject or binding lives in an unclassified namespace — review">Unclassified <span class="dim mono">0</span></a>
-      <a href="privileged-bucket-baseline.html#privileged-subjects" class="">Baseline <span class="dim mono">1</span></a>
+      <a href="privileged-bucket-baseline.html#privileged-subjects" class="active">Baseline <span class="dim mono">1</span></a>
       <a href="privileged-bucket-all.html#privileged-subjects" class="">All <span class="dim mono">8</span></a>
     </div>
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#priv-table" data-filter-counter="#priv-counter">
   </div>
 
-  <p class="dim"><span id="priv-counter">7</span> bindings</p>
+  <p class="dim"><span id="priv-counter">1</span> bindings</p>
 
 
   <table class="dense sortable" id="priv-table">
     <thead><tr><th>Role</th><th>Subject</th><th>Binding</th><th>Scope</th><th>Created</th></tr></thead>
     <tbody>
 
-      <tr >
-        <td><a class="badge badge-priv" href="clusterrole-system-openshift-scc-anyuid.html">system:openshift:scc:anyuid</a></td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-builder.html">builder</a>
-          <span class="dim mono">(mine-platform)</span>
-
-
-
-
-
-
-        </td>
-        <td class="mono">RoleBinding/mine-builder-use-anyuid</td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono dim" data-sort="2025-01-10T09:55:00Z" title="2025-01-10T09:55:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td><a class="badge badge-priv" href="clusterrole-admin.html">admin</a></td>
-        <td>
-          <span class="kind-tag kind-group">Group</span>
-          <a class="mono" href="subject-group-engineers.html">engineers</a>
-
-
-
-
-
-
-
-        </td>
-        <td class="mono">RoleBinding/admin-rb-copy</td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono dim" data-sort="2025-01-10T09:51:00Z" title="2025-01-10T09:51:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td><a class="badge badge-priv" href="clusterrole-admin.html">admin</a></td>
-        <td>
-          <span class="kind-tag kind-group">Group</span>
-          <a class="mono" href="subject-group-engineers.html">engineers</a>
-
-
-
-
-
-
-
-        </td>
-        <td class="mono">RoleBinding/admin-rb</td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono dim" data-sort="2025-01-10T09:50:00Z" title="2025-01-10T09:50:00Z">1y</td>
-      </tr>
-
-      <tr class="row-ghost">
-        <td><a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a></td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">runner</a>
-          <span class="dim mono">(legacy-pipelines)</span>
-          <span class="badge badge-warn">ghost</span>
-
-
-
-
-
-        </td>
-        <td class="mono">ClusterRoleBinding/legacy-runner-admin</td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono dim" data-sort="2025-01-10T09:48:00Z" title="2025-01-10T09:48:00Z">1y</td>
-      </tr>
-
-      <tr class="row-ghost">
-        <td><a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a></td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-pipeline-namespace-ci.html">pipeline</a>
-          <span class="dim mono">(ci)</span>
-          <span class="badge badge-warn">ghost</span>
-
-
-
-
-
-        </td>
-        <td class="mono">ClusterRoleBinding/ci-pipeline-clusteradmin</td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono dim" data-sort="2025-01-10T09:47:00Z" title="2025-01-10T09:47:00Z">1y</td>
-      </tr>
-
-      <tr class="row-ghost">
-        <td><a class="badge badge-priv" href="clusterrole-admin.html">admin</a></td>
-        <td>
-          <span class="kind-tag kind-user">User</span>
-          <a class="mono" href="subject-user-future-hire-company-com.html">future-hire@company.com</a>
-
-          <span class="badge badge-warn">ghost</span>
-
-
-
-
-
-        </td>
-        <td class="mono">ClusterRoleBinding/ghost-future-employee</td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono dim" data-sort="2025-01-10T09:46:00Z" title="2025-01-10T09:46:00Z">1y</td>
-      </tr>
-
-      <tr >
+      <tr class="row-baseline">
         <td><a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a></td>
         <td>
           <span class="kind-tag kind-group">Group</span>
-          <a class="mono" href="subject-group-platform-admins.html">platform-admins</a>
+          <a class="mono" href="subject-group-system-masters.html">system:masters</a>
 
 
 
@@ -317,9 +209,9 @@
 
 
         </td>
-        <td class="mono">ClusterRoleBinding/platform-admins-cluster-admin</td>
+        <td class="mono">ClusterRoleBinding/cluster-admin</td>
         <td class="mono dim">cluster-wide</td>
-        <td class="mono dim" data-sort="2025-01-10T09:45:00Z" title="2025-01-10T09:45:00Z">1y</td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
       </tr>
 
     </tbody>
