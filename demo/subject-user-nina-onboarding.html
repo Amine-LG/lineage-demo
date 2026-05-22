@@ -122,7 +122,7 @@
 
 
 
-  <h3>Per-namespace (1 namespace)</h3>
+  <h3>Per-namespace (2 namespaces)</h3>
   <table class="dense">
     <thead><tr><th>Namespace</th><th>Role</th><th>Via</th><th>Binding</th></tr></thead>
     <tbody>
@@ -145,6 +145,16 @@
     <td class="mono">RoleBinding/admin-rb-copy</td>
   </tr>
 
+        <tr>
+    <td class="mono" rowspan="1"><a href="namespace-payments-prod.html">payments-prod</a></td>
+    <td>
+      <a class="mono" href="role-payments-prod-read-secrets.html">read-secrets</a>
+
+    </td>
+    <td class="mono dim">Group/<a href="subject-group-engineers.html">engineers</a></td>
+    <td class="mono">RoleBinding/secret-readers</td>
+  </tr>
+
     </tbody>
   </table>
 
@@ -157,7 +167,7 @@
 
 
 <section>
-  <h2>Effective permissions (1 path)</h2>
+  <h2>Effective permissions (2 paths)</h2>
 
 
   <p class="lede">Each path is one (role, scope, group-membership) combination. Click <em>Show rules</em> to see the underlying API rules.</p>
@@ -253,6 +263,76 @@
             <td class="mono">roles, rolebindings</td>
             <td class="mono">get, list, watch, create, update, patch, delete</td>
             <td class="mono dim"><a href="clusterrole-admin-rbac.html">admin-rbac</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </details><details class="path-card">
+    <summary>
+
+
+
+      <div class="path-summary-row">
+        <span class="path-scope-badge path-scope-namespace">
+
+          Namespace: <a class="mono" href="namespace-payments-prod.html">payments-prod</a>
+
+        </span>
+        <span class="path-summary-meta">
+
+          <span class="dim">1 rule</span>
+        </span>
+      </div>
+      <div class="path-map" aria-label="Permission path">
+        <div class="path-node path-node-subject path-node-user">
+          <span class="path-node-kind">User</span>
+          <span class="path-node-name mono">nina-onboarding</span>
+
+        </div>
+
+        <div class="path-connector"><span>member of</span></div>
+        <div class="path-node path-node-group">
+          <span class="path-node-kind">Group</span>
+          <a class="path-node-name mono" href="subject-group-engineers.html">engineers</a>
+        </div>
+
+        <div class="path-connector"><span>bound by</span></div>
+        <div class="path-node path-node-binding">
+          <span class="path-node-kind">RoleBinding</span>
+          <span class="path-node-name mono">secret-readers</span>
+        </div>
+        <div class="path-connector"><span>grants</span></div>
+        <div class="path-node path-node-role ">
+          <span class="path-node-kind">Role</span>
+          <a class="path-node-name mono" href="role-payments-prod-read-secrets.html">read-secrets</a>
+
+
+        </div>
+      </div>
+      <div class="path-summary-line">
+        <strong>Verbs:</strong>
+        <span class="mono chip">get</span><span class="mono chip">list</span>
+
+        &nbsp;<strong>Resources:</strong>
+        <span class="mono chip">secrets</span>
+
+        &nbsp;<strong>API groups:</strong>
+        <span class="mono dim">core</span>
+      </div>
+
+
+    </summary>
+    <div class="path-rules">
+      <table class="dense rules-table sortable">
+        <thead><tr><th>API group</th><th>Resources</th><th>Verbs</th></tr></thead>
+        <tbody>
+
+          <tr>
+            <td class="mono"><span class="mono chip dim" title="core API group (apiGroups: [&quot;&quot;])">core</span></td>
+            <td class="mono">secrets</td>
+            <td class="mono">get, list</td>
+
           </tr>
 
         </tbody>
