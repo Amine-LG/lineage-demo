@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — SCCs</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" class="active">SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+
+
+<section>
+  <h1>Security Context Constraints (3)</h1>
+  <p class="lede">Admission attribution computed from the <code>openshift.io/scc</code> annotation on each running pod. Sorted newest first by <code>creationTimestamp</code>.</p>
+
+
+
+  <div class="toolbar">
+    <input type="search" class="search mono" placeholder="filter…"
+           data-filter-target="#sccs-table">
+  </div>
+
+  <table class="dense sortable" id="sccs-table">
+    <thead><tr>
+      <th>SCC</th><th>Priority</th><th>Privileged</th><th>HostNet</th><th>HostPID</th><th>HostIPC</th><th>RunAsUser</th><th>Pods admitted</th><th>Absent SA grants</th><th>Created</th>
+    </tr></thead>
+    <tbody>
+
+
+      <tr class="row-warn">
+        <td class="mono"><a href="scc-anyuid.html">anyuid</a>
+
+        </td>
+        <td class="mono">10</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td class="mono dim">RunAsAny</td>
+        <td class="mono">3</td>
+        <td class="mono">
+          <span class="badge badge-warn">1 absent</span>
+        </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+      </tr>
+
+
+      <tr class="row-priv">
+        <td class="mono"><a href="scc-privileged.html">privileged</a>
+          <span class="badge badge-priv">priv</span>
+        </td>
+        <td class="mono">10</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td class="mono dim">RunAsAny</td>
+        <td class="mono">1</td>
+        <td class="mono">
+          <span class="badge badge-warn">1 absent</span>
+        </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+      </tr>
+
+
+      <tr >
+        <td class="mono"><a href="scc-restricted-v2.html">restricted-v2</a>
+
+        </td>
+        <td class="mono">—</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td class="mono dim">MustRunAsRange</td>
+        <td class="mono">1</td>
+        <td class="mono">
+          <span class="dim">0</span>
+        </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+      </tr>
+
+    </tbody>
+  </table>
+  <p class="dim">An <strong>absent SA grant</strong> is an entry in <code>scc.users</code> of the form <code>system:serviceaccount:&lt;ns&gt;:&lt;name&gt;</code> whose ServiceAccount object is gone. SCC admission still matches the name string the moment the SA is recreated.</p>
+</section>
+
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

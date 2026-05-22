@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — system:openshift:scc:anyuid</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" class="active">Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <h1>
+    <span class="kind-tag kind-clusterrole">ClusterRole</span>
+    <span class="mono">system:openshift:scc:anyuid</span>
+
+
+  </h1>
+
+
+</section>
+
+
+<section>
+  <h2>Namespaces reached</h2>
+  <p class="lede">Where bindings to this ClusterRole land. Cluster-wide bindings reach every namespace; per-namespace bindings are listed.</p>
+
+
+
+
+  <table class="dense">
+    <thead><tr><th>Namespace</th><th>Bindings</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
+        <td class="mono">1</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</section>
+
+
+
+
+
+
+<section>
+  <h2>SCC-use grants (1)</h2>
+  <p class="lede">This role's rules grant <code>use</code> on these SecurityContextConstraints. Privileged SCCs are highlighted.</p>
+
+  <table class="dense">
+    <thead><tr><th>SCC</th><th>Present</th><th>Privileged</th></tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">
+          <a href="scc-anyuid.html">anyuid</a>
+
+        </td>
+        <td>yes</td>
+        <td>no</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+
+<section>
+  <h2>Bindings that reference this role (1)</h2>
+
+  <table class="dense sortable">
+    <thead><tr><th>Binding</th><th>Scope</th><th>Subjects</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono">RoleBinding/mine-builder-use-anyuid</td>
+        <td class="mono dim">
+          <a href="namespace-mine-platform.html">mine-platform</a>
+        </td>
+        <td>
+
+            <span class="kind-tag kind-serviceaccount">ServiceAccount</span><a class="mono" href="subject-serviceaccount-builder.html">builder</a> <span class="dim mono">(<a href="namespace-mine-platform.html">mine-platform</a>)</span>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <h2>Rules (1)</h2>
+  <p class="lede">
+    <strong>Verbs:</strong>
+    <span class="mono chip">use</span>
+  </p>
+  <table class="dense sortable">
+    <thead><tr><th>API group</th><th>Resources</th><th>Verbs</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><span class="mono chip">security.openshift.io</span></td>
+        <td class="mono">securitycontextconstraints</td>
+        <td class="mono">use</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

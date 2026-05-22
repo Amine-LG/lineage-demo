@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — rhea-rehire</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" class="active">Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <div class="subject-head">
+    <h1>
+      <span class="kind-tag kind-user">User</span>
+      <span class="mono">rhea-rehire</span>
+
+
+
+
+<span class="badge badge-warn">No ID</span>
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+    </h1>
+  </div>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section>
+  <h2>Reach</h2>
+  <p class="lede">Where this subject's permissions land. Cluster-wide grants reach every namespace; namespace-scoped grants are listed individually. Grants that come from auto-membership virtual groups (<code>system:authenticated</code>, <code>system:authenticated:oauth</code>, <code>system:serviceaccounts</code>, <code>system:serviceaccounts:&lt;ns&gt;</code>) are folded into the collapsible blocks below — they apply to every authenticated principal on the cluster, not to this subject specifically.</p>
+
+
+
+
+  <details class="system-reach">
+    <summary><strong>Cluster-wide via system virtual groups</strong> <span class="dim">(1)</span> <span class="dim">— shared with every authenticated principal</span></summary>
+    <table class="dense">
+      <thead><tr><th>Role</th><th>Via</th><th>Binding</th></tr></thead>
+      <tbody>
+        <tr>
+    <td>
+
+      <a class="mono" href="clusterrole-view.html">view</a>
+    </td>
+    <td class="mono dim">Group/<a href="subject-group-system-authenticated-oauth.html">system:authenticated:oauth</a></td>
+    <td class="mono">ClusterRoleBinding/oauth-users-self-review</td>
+  </tr>
+      </tbody>
+    </table>
+  </details>
+
+
+
+
+
+
+
+</section>
+
+
+
+<section>
+  <h2>Effective permissions (1 path)</h2>
+
+
+  <p class="lede">Each path is one (role, scope, group-membership) combination. Click <em>Show rules</em> to see the underlying API rules. 1 additional path via auto-membership virtual groups (<code>system:authenticated</code> et al.) is collapsed below — they grant the same access to every authenticated principal.</p>
+
+
+  <p class="dim">All paths come from auto-membership virtual groups — see the collapsible block below.</p>
+
+
+
+  <details class="system-reach">
+    <summary><strong>Paths via system virtual groups</strong> <span class="dim">(1)</span> <span class="dim">— shared with every authenticated principal</span></summary>
+    <div class="system-paths">
+      <details class="path-card">
+    <summary>
+
+
+
+      <div class="path-summary-row">
+        <span class="path-scope-badge path-scope-cluster">
+
+          Cluster-wide
+
+        </span>
+        <span class="path-summary-meta">
+
+          <span class="dim">1 rule</span>
+        </span>
+      </div>
+      <div class="path-map" aria-label="Permission path">
+        <div class="path-node path-node-subject path-node-user">
+          <span class="path-node-kind">User</span>
+          <span class="path-node-name mono">rhea-rehire</span>
+
+        </div>
+
+        <div class="path-connector"><span>member of</span></div>
+        <div class="path-node path-node-group">
+          <span class="path-node-kind">Group</span>
+          <a class="path-node-name mono" href="subject-group-system-authenticated-oauth.html">system:authenticated:oauth</a>
+        </div>
+
+        <div class="path-connector"><span>bound by</span></div>
+        <div class="path-node path-node-binding">
+          <span class="path-node-kind">ClusterRoleBinding</span>
+          <span class="path-node-name mono">oauth-users-self-review</span>
+        </div>
+        <div class="path-connector"><span>grants</span></div>
+        <div class="path-node path-node-role ">
+          <span class="path-node-kind">ClusterRole</span>
+          <a class="path-node-name mono" href="clusterrole-view.html">view</a>
+
+
+        </div>
+      </div>
+      <div class="path-summary-line">
+        <strong>Verbs:</strong>
+        <span class="mono chip">get</span><span class="mono chip">list</span><span class="mono chip">watch</span>
+
+        &nbsp;<strong>Resources:</strong>
+        <span class="mono chip">pods</span><span class="mono chip">services</span>
+
+        &nbsp;<strong>API groups:</strong>
+        <span class="mono dim">core</span>
+      </div>
+
+
+    </summary>
+    <div class="path-rules">
+      <table class="dense rules-table sortable">
+        <thead><tr><th>API group</th><th>Resources</th><th>Verbs</th></tr></thead>
+        <tbody>
+
+          <tr>
+            <td class="mono"><span class="mono chip dim" title="core API group (apiGroups: [&quot;&quot;])">core</span></td>
+            <td class="mono">pods, services</td>
+            <td class="mono">get, list, watch</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </details>
+    </div>
+  </details>
+
+
+
+
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

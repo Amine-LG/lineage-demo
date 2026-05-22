@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Images</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" class="active">Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section id="images-overview">
+  <h1>Container images</h1>
+  <p class="lede">Every image running in the cluster, grouped by registry. Catches external images you didn't expect, internal-registry images that depend on ImageStreams, and shows pod attribution end-to-end.</p>
+
+  <div class="toolbar">
+    <div class="segment-toggle">
+      <a href="images.html#images-overview" class="active" title="Project image refs and ImageStreams">Yours <span class="dim mono">6</span></a>
+      <a href="images.html#images-overview" class="" title="Image refs and ImageStreams tied to unclassified namespaces — review">Unclassified <span class="dim mono">0</span></a>
+      <a href="images.html#images-overview" class="" title="Baseline image refs and ImageStreams">Baseline <span class="dim mono">1</span></a>
+      <a href="images.html#images-overview" class="" title="All image refs and ImageStreams">All <span class="dim mono">7</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="image-drift" class="callout-priv">
+
+  <h2>Stale-by-digest images (1 of 1)</h2>
+  <p class="lede">
+    These spec image refs (a tag like <code>:latest</code> or <code>:1.25</code>) resolve to
+    <strong>different digests across pods</strong>. Someone repushed the tag while pods were
+    running — half your fleet is on the old digest, half on the new. To fix: pin to digest
+    (<code>image@sha256:...</code>), or roll the deployment so all pods converge.
+  </p>
+  <table class="dense sortable">
+    <thead><tr>
+      <th>Image (spec ref)</th><th>Registry</th><th>Distinct digests</th><th>Pods</th><th>Breakdown</th>
+    </tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono image-cell" title="docker.io/library/nginx:1.25"><a href="image-ref-docker-io-library-nginx-1-25.html">docker.io/library/nginx:1.25</a></td>
+        <td class="mono">docker.io</td>
+        <td class="mono" data-sort="2">2</td>
+        <td class="mono" data-sort="2">2</td>
+        <td>
+
+          <details>
+            <summary><code class="mono">sha256:aaaaaa…</code> <span class="dim">(1 pod)</span></summary>
+            <ul class="inline-list">
+
+              <li><a href="namespace-mine-platform.html" class="mono">mine-platform/api-1</a></li>
+
+            </ul>
+          </details>
+
+          <details>
+            <summary><code class="mono">sha256:bbbbbb…</code> <span class="dim">(1 pod)</span></summary>
+            <ul class="inline-list">
+
+              <li><a href="namespace-mine-platform.html" class="mono">mine-platform/api-2</a></li>
+
+            </ul>
+          </details>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+
+<section id="registries">
+  <h2>Registries (4 of 4)</h2>
+  <p class="lede">Which container registries this cluster pulls from. Public registries used by your workloads are particularly worth knowing about.</p>
+  <table class="dense sortable">
+    <thead><tr>
+      <th>Registry</th><th>Type</th><th>Images</th><th>Pods using</th><th>Used by yours</th>
+    </tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">quay.io</td>
+        <td>
+          <span class="badge badge-sys">Red Hat</span>
+
+        </td>
+        <td class="mono">2</td>
+        <td class="mono">2</td>
+        <td><strong>yes</strong></td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono">docker.io</td>
+        <td>
+          <span class="badge badge-warn">public</span>
+
+        </td>
+        <td class="mono">1</td>
+        <td class="mono">2</td>
+        <td><strong>yes</strong></td>
+      </tr>
+
+      <tr >
+        <td class="mono">image-registry.openshift-image-registry.svc:5000</td>
+        <td>
+          <span class="badge badge-info">internal registry</span>
+
+        </td>
+        <td class="mono">1</td>
+        <td class="mono">1</td>
+        <td><strong>yes</strong></td>
+      </tr>
+
+      <tr >
+        <td class="mono">registry.redhat.io</td>
+        <td>
+          <span class="badge badge-sys">Red Hat</span>
+
+        </td>
+        <td class="mono">1</td>
+        <td class="mono">1</td>
+        <td><strong>yes</strong></td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+
+<section id="images-list">
+  <h2>Images (4 of 5)</h2>
+  <div class="toolbar">
+    <input type="search" class="search mono" placeholder="filter image, registry, namespace…"
+           data-filter-target="#images-table" data-filter-counter="#images-counter">
+  </div>
+  <p class="dim"><span id="images-counter">4</span> matching</p>
+  <table class="dense sortable" id="images-table">
+    <thead><tr>
+      <th>Image</th><th>Registry</th><th>Pods</th><th>Used in</th>
+    </tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono image-cell" title="docker.io/library/nginx:1.25"><a href="image-ref-docker-io-library-nginx-1-25.html">docker.io/library/nginx:1.25</a></td>
+        <td class="mono">docker.io
+          <span class="badge badge-warn">public</span>
+        </td>
+        <td class="mono" data-sort="2">2</td>
+        <td class="mono">
+
+          <a href="namespace-mine-platform.html">mine-platform</a>
+
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono image-cell" title="image-registry.openshift-image-registry.svc:5000/mine-platform/api:latest"><a href="image-ref-image-registry-openshift-image-registry-svc-5000-mine-platform-api-latest.html">…openshift-image-registry.svc:5000/mine-platform/api:latest</a></td>
+        <td class="mono">image-registry.openshift-image-registry.svc:5000
+          <span class="badge badge-info">internal</span>
+
+        </td>
+        <td class="mono" data-sort="1">1</td>
+        <td class="mono">
+
+          <a href="namespace-mine-platform.html">mine-platform</a>
+
+        </td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono image-cell" title="quay.io/buildah/stable:v1.35"><a href="image-ref-quay-io-buildah-stable-v1-35.html">quay.io/buildah/stable:v1.35</a></td>
+        <td class="mono">quay.io
+          <span class="badge badge-warn">public</span>
+        </td>
+        <td class="mono" data-sort="1">1</td>
+        <td class="mono">
+
+          <a href="namespace-ci.html">ci</a>
+
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono image-cell" title="registry.redhat.io/rhel8/support-tools:latest"><a href="image-ref-registry-redhat-io-rhel8-support-tools-latest.html">registry.redhat.io/rhel8/support-tools:latest</a></td>
+        <td class="mono">registry.redhat.io
+          <span class="badge badge-sys">RH</span>
+
+        </td>
+        <td class="mono" data-sort="1">1</td>
+        <td class="mono">
+
+          <a href="namespace-mine-platform.html">mine-platform</a>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+
+
+
+<section id="imagestreams">
+  <h2>ImageStreams (2 of 2)</h2>
+  <p class="lede">OpenShift ImageStreams. <code>used_by</code> counts pods whose container image references the stream's repository.</p>
+  <table class="dense sortable">
+    <thead><tr>
+      <th>Name</th><th>Namespace</th><th>Tags</th><th>Used by pods</th><th>Created</th>
+    </tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">base</td>
+        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
+        <td class="mono">ubi</td>
+        <td class="mono" data-sort="0">
+
+          0 pods
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:59:00Z" title="2025-01-10T09:59:00Z">1y</td>
+      </tr>
+
+      <tr >
+        <td class="mono">api</td>
+        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
+        <td class="mono">latest</td>
+        <td class="mono" data-sort="1">
+
+          <details>
+            <summary>1 pod</summary>
+            <ul class="inline-list">
+
+              <li><a href="namespace-mine-platform.html" class="mono">mine-platform/api-1</a></li>
+
+            </ul>
+          </details>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:58:00Z" title="2025-01-10T09:58:00Z">1y</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Identity audit</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" class="active">Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section id="identity-providers">
+  <h1>Identity audit</h1>
+  <p class="lede">What can authenticate, what's stale, and which name strings still grant access after their backing object is gone.</p>
+
+
+
+
+
+
+  <div class="posture-pill posture-disabled" id="self-provisioner-posture">
+    <strong>Self-provisioner:</strong>
+    <span class="posture-tag">disabled</span>
+
+    <span class="dim">— No ClusterRoleBinding to `self-provisioner` for `system:authenticated[:oauth]` is visible. Non-admin users cannot self-provision projects, so namespace-reuse findings need administrator action to trigger.</span>
+  </div>
+
+</section>
+
+<section id="resurrectable">
+  <h2>1. Resurrectable identities and SCC groups
+    <span class="dim">(2)</span></h2>
+  <p class="lede">Grants that name a missing subject. Recreating the name re-arms them.</p>
+
+
+
+  <div class="banner banner-warn">
+    <strong>2 critical</strong> — recreation would unlock <code>cluster-admin</code> or a privileged SCC.
+  </div>
+
+
+  <div class="filterbar">
+    <a href="identity-audit.html#resurrectable" class="">All <span class="dim mono">2</span></a>
+    <a href="identity-audit.html#resurrectable" class="active">Critical <span class="dim mono">2</span></a>
+    <a href="identity-audit.html#resurrectable" class="">High <span class="dim mono">0</span></a>
+    <a href="identity-audit.html#resurrectable" class="">Medium <span class="dim mono">0</span></a>
+    <a href="identity-audit.html#resurrectable" class="">Low <span class="dim mono">0</span></a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="resurrectable-serviceaccounts">
+    <h3>ServiceAccount identities <span class="dim">(2)</span></h3>
+
+    <div class="table-controls">
+      <input type="search" class="table-filter" placeholder="Filter table..."
+             aria-label="Filter resurrectable ServiceAccounts"
+             data-filter-target="#resurrectable-table">
+    </div>
+
+
+
+<table class="dense sortable" id="resurrectable-table">
+
+  <thead><tr>
+    <th>Principal</th><th>Severity</th><th>Created</th><th>Namespace state</th><th>Surviving grants</th>
+  </tr></thead>
+  <tbody>
+
+    <tr class="row-priv">
+      <td class="mono">
+        <a href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">system:serviceaccount:legacy-pipelines:runner</a>
+        <span class="badge badge-warn">resurrectable</span>
+        <span class="badge badge-priv">cluster-admin</span>
+        <span class="badge badge-priv">privileged SCC</span>
+
+      </td>
+      <td data-sort="critical">
+        <span class="badge badge-priv">critical</span>
+
+      </td>
+      <td class="mono" data-sort="2025-01-10T09:48:00Z">1y</td>
+      <td>
+        <span class="badge badge-priv">ns deleted</span> <span class="dim">recreate ns + SA reactivates</span>
+      </td>
+      <td class="mono">
+
+        <div>
+          <span class="kind-tag kind-clusterrolebinding">ClusterRoleBinding</span>legacy-runner-admin
+          →
+            <a href="clusterrole-cluster-admin.html"><span class="badge badge-priv">cluster-admin</span></a>
+
+
+          <span class="dim">(RBAC)</span>
+        </div>
+
+        <div>
+          <span class="kind-tag kind-scc">SCC</span>privileged
+          →
+            <a href="scc-privileged.html"><span class="badge badge-priv">privileged</span></a>
+
+
+          <span class="dim">(SCC user list)</span>
+        </div>
+
+      </td>
+    </tr>
+
+    <tr class="row-priv">
+      <td class="mono">
+        <a href="subject-serviceaccount-pipeline-namespace-ci.html">system:serviceaccount:ci:pipeline</a>
+        <span class="badge badge-warn">resurrectable</span>
+        <span class="badge badge-priv">cluster-admin</span>
+
+
+      </td>
+      <td data-sort="critical">
+        <span class="badge badge-priv">critical</span>
+
+      </td>
+      <td class="mono" data-sort="2025-01-10T09:47:00Z">1y</td>
+      <td>
+        <span class="badge badge-info">ns present</span> <span class="dim">SA missing</span>
+
+      </td>
+      <td class="mono">
+
+        <div>
+          <span class="kind-tag kind-clusterrolebinding">ClusterRoleBinding</span>ci-pipeline-clusteradmin
+          →
+            <a href="clusterrole-cluster-admin.html"><span class="badge badge-priv">cluster-admin</span></a>
+
+
+          <span class="dim">(RBAC)</span>
+        </div>
+
+        <div>
+          <span class="kind-tag kind-scc">SCC</span>anyuid
+          →
+            <a href="scc-anyuid.html">anyuid</a>
+
+
+          <span class="dim">(SCC user list)</span>
+        </div>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+  </section>
+
+
+
+
+
+
+  <section id="deleted-namespaces" class="callout-priv">
+    <h3>Deleted namespaces with surviving privilege (1)</h3>
+    <p class="lede">Click any principal to open the surviving-grants view. A future <code>oc new-project &lt;ns&gt;</code> would re-arm these.</p>
+    <table class="dense">
+      <thead><tr><th>Namespace</th><th>Max severity</th><th>Resurrectable principals</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td class="mono">legacy-pipelines <span class="badge badge-priv">deleted</span></td>
+          <td>
+            <span class="badge badge-priv">critical</span>
+
+          </td>
+          <td class="mono">
+            <a href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">runner</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+</section>
+
+<section id="identity-anomalies">
+  <h2>2. Latent users <span class="dim">(2)</span></h2>
+  <p class="lede">In an IdP or Group, no <code>User</code> object yet. Become active on first login and inherit any pre-existing bindings.</p>
+
+
+  <table class="dense sortable">
+    <thead><tr><th>Username</th><th>Source</th><th>Where</th></tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-nina-onboarding.html">nina-onboarding</a></td>
+        <td>
+          <span class="badge badge-warn">group-listed</span>
+
+        </td>
+        <td class="mono dim">listed in Group/engineers</td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-tom-future-hire.html">tom-future-hire</a></td>
+        <td>
+          <span class="badge badge-warn">htpasswd</span>
+
+        </td>
+        <td class="mono dim">in Secret openshift-config/htpasswd-secret (idp=dev)</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <h2>3. Phantom users <span class="dim">(1)</span></h2>
+  <p class="lede"><code>User</code> + <code>Identity</code> exist, IdP no longer recognises them. Restoring the IdP entry re-arms their bindings.</p>
+
+
+  <table class="dense sortable">
+    <thead><tr><th>Name</th><th>Reason</th><th>Provider(s)</th></tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-mallory.html">mallory</a></td>
+        <td>removed from htpasswd (dev)</td>
+        <td class="mono dim">dev</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section id="bound-ghosts">
+  <h2>4. Bound ghosts <span class="dim">(1)</span></h2>
+
+  <p class="lede">Bindings reference a subject with no backing object. Activate the moment the name appears.</p>
+
+
+
+
+  <table class="dense sortable">
+    <thead><tr><th>Name</th><th>Kind</th><th>Created</th><th>Bound by (grants)</th><th>Category</th></tr></thead>
+    <tbody>
+
+      <tr class="row-ghost">
+        <td class="mono">
+          <a href="subject-user-future-hire-company-com.html">future-hire@company.com</a>
+
+          <span class="badge badge-warn">ghost</span>
+        </td>
+        <td>User</td>
+        <td class="mono" data-sort="2025-01-10T09:46:00Z">1y</td>
+        <td class="mono">
+          ClusterRoleBinding/ghost-future-employee
+
+        </td>
+        <td>
+          <strong>real anomaly</strong>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</section>
+
+<section>
+  <h2>5. Stranded users <span class="dim">(3)</span></h2>
+  <p class="lede"><code>User</code> exists, no <code>Identity</code> links it to an IdP.</p>
+
+  <table class="dense sortable">
+    <thead><tr><th>User</th><th>Identity link</th><th>Subject page</th></tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-kubeadmin.html">kubeadmin</a></td>
+        <td><span class="badge badge-warn">No ID</span></td>
+        <td><a href="subject-user-kubeadmin.html">Open permissions</a></td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-manual-approver.html">manual-approver</a></td>
+        <td><span class="badge badge-warn">No ID</span></td>
+        <td><a href="subject-user-manual-approver.html">Open permissions</a></td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono"><a href="subject-user-rhea-rehire.html">rhea-rehire</a></td>
+        <td><span class="badge badge-warn">No ID</span></td>
+        <td><a href="subject-user-rhea-rehire.html">Open permissions</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <h2>6. Orphan identities <span class="dim">(1)</span></h2>
+  <p class="lede"><code>Identity</code> points to a <code>User</code> that doesn't exist.</p>
+
+  <table class="dense sortable">
+    <thead><tr><th>Missing user</th><th>Identity</th><th>Provider</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><a href="subject-user-orphaned-user.html">orphaned-user</a></td>
+        <td class="mono">dev:orphaned-user</td>
+        <td>dev</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <h2>Identity providers</h2>
+  <p class="lede">HTPasswd is auditable from the backing Secret. LDAP/OIDC are not.</p>
+
+  <table class="dense sortable">
+    <thead><tr><th>Provider</th><th>Type</th><th>Audit support</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><a href="#identity-providers">dev</a></td>
+        <td>HTPasswd</td>
+        <td><span class="badge badge-info">auditable</span></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

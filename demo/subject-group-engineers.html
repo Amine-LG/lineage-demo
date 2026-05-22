@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — engineers</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" class="active">Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <div class="subject-head">
+    <h1>
+      <span class="kind-tag kind-group">Group</span>
+      <span class="mono">engineers</span>
+
+
+
+
+
+
+
+    </h1>
+  </div>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+<section>
+  <h2>Members (2)</h2>
+
+  <ul class="inline-list">
+    <li><a href="subject-user-eve.html" class="mono">eve</a></li><li><a href="subject-user-nina-onboarding.html" class="mono">nina-onboarding</a></li>
+  </ul>
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+  <h2>Reach</h2>
+  <p class="lede">Where this subject's permissions land. Cluster-wide grants reach every namespace; namespace-scoped grants are listed individually.</p>
+
+
+
+
+
+
+  <h3>Per-namespace (1 namespace)</h3>
+  <table class="dense">
+    <thead><tr><th>Namespace</th><th>Role</th><th>Via</th><th>Binding</th></tr></thead>
+    <tbody>
+
+        <tr>
+    <td class="mono" rowspan="2"><a href="namespace-mine-platform.html">mine-platform</a></td>
+    <td>
+      <a class="mono" href="clusterrole-admin.html"><span class="badge badge-priv">admin</span></a>
+
+    </td>
+    <td class="mono dim">direct</td>
+    <td class="mono">RoleBinding/admin-rb</td>
+  </tr><tr>
+
+    <td>
+      <a class="mono" href="clusterrole-admin.html"><span class="badge badge-priv">admin</span></a>
+
+    </td>
+    <td class="mono dim">direct</td>
+    <td class="mono">RoleBinding/admin-rb-copy</td>
+  </tr>
+
+    </tbody>
+  </table>
+
+
+
+
+
+</section>
+
+
+
+<section>
+  <h2>Effective permissions (1 path)</h2>
+
+
+  <p class="lede">Each path is one (role, scope, group-membership) combination. Click <em>Show rules</em> to see the underlying API rules.</p>
+
+
+  <details class="path-card">
+    <summary>
+
+
+
+      <div class="path-summary-row">
+        <span class="path-scope-badge path-scope-namespace">
+
+          Namespace: <a class="mono" href="namespace-mine-platform.html">mine-platform</a>
+
+        </span>
+        <span class="path-summary-meta">
+          <span class="badge badge-priv">* wildcard</span>
+          <span class="dim">3 rules</span>
+        </span>
+      </div>
+      <div class="path-map" aria-label="Permission path">
+        <div class="path-node path-node-subject path-node-group">
+          <span class="path-node-kind">Group</span>
+          <span class="path-node-name mono">engineers</span>
+
+        </div>
+
+        <div class="path-connector"><span>bound by</span></div>
+        <div class="path-node path-node-binding">
+          <span class="path-node-kind">RoleBinding</span>
+          <span class="path-node-name mono">admin-rb</span>
+        </div>
+        <div class="path-connector"><span>grants</span></div>
+        <div class="path-node path-node-role path-node-priv">
+          <span class="path-node-kind">ClusterRole</span>
+          <a class="path-node-name mono" href="clusterrole-admin.html">admin</a>
+
+          <span class="badge badge-priv">privileged</span>
+        </div>
+      </div>
+      <div class="path-summary-line">
+        <strong>Verbs:</strong>
+        <span class="mono chip">*</span><span class="mono chip">create</span><span class="mono chip">delete</span><span class="mono chip">get</span><span class="mono chip">list</span><span class="mono chip">patch</span><span class="mono chip">update</span><span class="mono chip">watch</span>
+
+        &nbsp;<strong>Resources:</strong>
+        <span class="mono chip">configmaps</span><span class="mono chip">deployments</span><span class="mono chip">pods</span><span class="mono chip">rolebindings</span><span class="mono chip">roles</span><span class="mono chip">secrets</span>
+
+        &nbsp;<strong>API groups:</strong>
+        <span class="mono dim">apps, core, rbac.authorization.k8s.io</span>
+      </div>
+
+      <div class="path-summary-line dim">
+        Aggregated from
+        <a class="mono" href="clusterrole-admin-workloads.html">admin-workloads</a>, <a class="mono" href="clusterrole-admin-rbac.html">admin-rbac</a>
+
+      </div>
+
+
+      <div class="path-summary-line">
+        <span class="badge badge-warn">2 duplicate bindings</span>
+        <span class="mono dim">admin-rb, admin-rb-copy</span>
+      </div>
+
+    </summary>
+    <div class="path-rules">
+      <table class="dense rules-table sortable">
+        <thead><tr><th>API group</th><th>Resources</th><th>Verbs</th><th>From</th></tr></thead>
+        <tbody>
+
+          <tr>
+            <td class="mono"><span class="mono chip">apps</span></td>
+            <td class="mono">deployments</td>
+            <td class="mono"><span class="badge badge-priv" title="wildcard verb">*</span></td>
+            <td class="mono dim"><a href="clusterrole-admin-workloads.html">admin-workloads</a></td>
+          </tr>
+
+          <tr>
+            <td class="mono"><span class="mono chip dim" title="core API group (apiGroups: [&quot;&quot;])">core</span></td>
+            <td class="mono">pods, secrets, configmaps</td>
+            <td class="mono"><span class="badge badge-priv" title="wildcard verb">*</span></td>
+            <td class="mono dim"><a href="clusterrole-admin-workloads.html">admin-workloads</a></td>
+          </tr>
+
+          <tr>
+            <td class="mono"><span class="mono chip">rbac.authorization.k8s.io</span></td>
+            <td class="mono">roles, rolebindings</td>
+            <td class="mono">get, list, watch, create, update, patch, delete</td>
+            <td class="mono dim"><a href="clusterrole-admin-rbac.html">admin-rbac</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+
+
+
+
+
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Image detail</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" class="active">Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <h1>Image detail</h1>
+  <p class="lede">Every visible pod/container using this exact image reference.</p>
+
+  <h2>Full image reference</h2>
+  <pre class="code">quay.io/buildah/stable:v1.35</pre>
+
+  <div class="ns-stats">
+    <span><strong>1</strong> pod</span>
+    <span><strong>1</strong> namespace</span>
+    <span><strong>quay.io</strong> registry</span>
+    <span>
+      <strong>public</strong>
+
+      type
+    </span>
+  </div>
+
+
+  <h2>Resolved digest</h2>
+  <pre class="code">sha256:dddddd</pre>
+
+</section>
+
+
+
+
+
+<section>
+  <h2>Used by pods</h2>
+
+
+
+  <h3>By namespace (1)</h3>
+
+  <table class="dense">
+    <thead><tr><th>Namespace</th><th>Pods</th><th>Containers</th><th>Scope</th></tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono"><a href="namespace-ci.html">ci</a></td>
+        <td class="mono">1</td>
+        <td class="mono">1</td>
+        <td><span class="badge badge-info">yours</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+
+  <h3>Containers (1)</h3>
+
+
+  <table class="dense sortable image-detail-containers" id="image-pods-table">
+    <thead><tr>
+      <th>Container</th><th>Pod</th><th>Namespace</th><th>Phase</th><th>ServiceAccount</th><th>SCC</th><th>Scope</th><th>Resolved digest</th><th>Spec image</th>
+    </tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">build</td>
+        <td class="mono">build-run-1</td>
+        <td class="mono"><a href="namespace-ci.html">ci</a></td>
+        <td>Running</td>
+        <td class="mono">
+          <a href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
+        </td>
+        <td class="mono">
+          <a href="scc-anyuid.html">anyuid</a>
+        </td>
+        <td><span class="badge badge-info">yours</span></td>
+        <td class="mono image-cell" title="sha256:dddddd">sha256:dddddd</td>
+        <td class="mono image-cell" title="quay.io/buildah/stable:v1.35">quay.io/buildah/stable:v1.35</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

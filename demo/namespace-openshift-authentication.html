@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Namespace openshift-authentication</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" class="active">Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <h1>
+    <span class="kind-tag kind-namespace">Namespace</span>
+    <span class="mono">openshift-authentication</span>
+
+    <span class="badge badge-sys">openshift</span>
+
+  </h1>
+  <p class="lede">
+
+    2025-01-01 00:00:00 (505d ago)
+  </p>
+
+
+</section>
+
+
+
+<section>
+  <details class="path-card">
+    <summary>
+      <strong>Why this category</strong>
+      <span class="dim mono">— 1 signal</span>
+    </summary>
+    <div class="path-rules">
+
+      <table class="dense rules-table">
+        <thead><tr><th>Category</th><th>Reason</th></tr></thead>
+        <tbody>
+
+          <tr>
+            <td class="mono">openshift</td>
+            <td>name &#39;openshift-authentication&#39; matches the openshift-* platform prefix</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>ServiceAccounts (0)</h2>
+  <p class="dim">None.</p>
+</section>
+
+<section>
+  <h2>Pods (1)</h2>
+
+  <table class="dense sortable">
+    <thead><tr><th>Pod</th><th>Phase</th><th>SCC</th><th>ServiceAccount</th><th>Created</th></tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">oauth-server</td>
+        <td>Running</td>
+        <td class="mono">
+
+          <a href="scc-restricted-v2.html">restricted-v2</a>
+        </td>
+        <td class="mono">default</td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+
+<section>
+  <h2>SCC admissions in this namespace (1)</h2>
+  <p class="lede">Which SCCs admitted the pods running here, and how many.</p>
+
+
+
+  <table class="dense">
+    <thead><tr><th>SCC</th><th>Pods</th><th>Privileged</th></tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono"><a href="scc-restricted-v2.html">restricted-v2</a></td>
+        <td class="mono">1</td>
+        <td>no</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</section>
+
+
+
+
+
+<section>
+  <h2>Images and ImageStreams here</h2>
+
+
+
+  <h3>Images running here (1)</h3>
+
+
+  <table class="dense">
+    <thead><tr><th>Image</th><th>Registry</th><th>Containers</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><a href="image-ref-quay-io-openshift-release-dev-ocp-release-sha256-fake.html">quay.io/openshift-release-dev/ocp-release@sha256:fake</a></td>
+        <td class="mono dim">quay.io</td>
+        <td class="mono">1</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+</section>
+
+
+<section>
+  <h2>RoleBindings (0)</h2>
+  <p class="dim">None.</p>
+</section>
+
+
+<section id="ns-access">
+  <h2>Subjects with access here (7)</h2>
+  <p class="lede">Subjects with namespace-effective access here — local RoleBindings, cluster-wide bindings with namespaced resource rules, cross-namespace SAs, groups, and system grants — in one table. Sorted by power so cluster-admin grants surface first. Filter by access bucket or subject kind.</p>
+
+
+
+  <div class="toolbar">
+    <div class="segment-toggle">
+      <a href="namespace-openshift-authentication.html#ns-access" class="">Yours <span class="dim mono">5</span></a>
+      <a href="namespace-openshift-authentication.html#ns-access" class="" title="Subjects whose namespace could not be classified — review">Unclassified <span class="dim mono">0</span></a>
+      <a href="namespace-openshift-authentication.html#ns-access" class="">Baseline <span class="dim mono">2</span></a>
+      <a href="namespace-openshift-authentication.html#ns-access" class="active">All <span class="dim mono">7</span></a>
+    </div>
+  </div>
+
+  <div class="filterbar inline">
+    <a href="namespace-openshift-authentication.html#ns-access" class="">All kinds <span class="dim mono">7</span></a>
+    <a href="namespace-openshift-authentication.html#ns-access" class="active">Users <span class="dim mono">2</span></a>
+    <a href="namespace-openshift-authentication.html#ns-access" class="">Groups <span class="dim mono">3</span></a>
+    <a href="namespace-openshift-authentication.html#ns-access" class="">ServiceAccounts <span class="dim mono">2</span></a>
+  </div>
+
+  <p class="dim">2 rows shown · 7 total
+
+
+  </p>
+
+
+  <table class="dense sortable">
+    <thead>
+      <tr><th>Subject</th><th>Role</th><th>Scope</th><th>Binding</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+
+      <tr >
+        <td>
+          <span class="kind-tag kind-user">User</span>
+          <a class="mono" href="subject-user-alice.html">alice</a>
+
+
+
+
+
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+        </td>
+        <td>
+          <a class="mono" href="clusterrole-cluster-admin.html"><span class="badge badge-priv">cluster-admin</span></a>
+
+        </td>
+        <td class="mono dim">cluster</td>
+        <td class="mono">ClusterRoleBinding/platform-admins-cluster-admin</td>
+        <td class="mono dim">ClusterRoleBinding</td>
+      </tr>
+
+      <tr class="row-ghost">
+        <td>
+          <span class="kind-tag kind-user">User</span>
+          <a class="mono" href="subject-user-future-hire-company-com.html">future-hire@company.com</a>
+
+          <span class="badge badge-warn">ghost</span>
+
+
+
+
+
+        </td>
+        <td>
+          <a class="mono" href="clusterrole-admin.html"><span class="badge badge-priv">admin</span></a>
+
+        </td>
+        <td class="mono dim">cluster</td>
+        <td class="mono">ClusterRoleBinding/ghost-future-employee</td>
+        <td class="mono dim">ClusterRoleBinding</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

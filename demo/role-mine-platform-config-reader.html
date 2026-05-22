@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Role config-reader</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" class="active">Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section>
+  <p class="dim"><button type="button" class="back-link"
+   onclick="window.history.back();">&larr; Back</button></p>
+  <h1>
+    <span class="kind-tag kind-role">Role</span>
+    <span class="mono">config-reader</span>
+    <span class="dim mono">in <a href="namespace-mine-platform.html">mine-platform</a></span>
+  </h1>
+  <p class="dim">Created 2025-01-10 09:40:00 (496d ago)</p>
+</section>
+
+<section>
+  <h2>Active bindings (1)</h2>
+
+  <table class="dense sortable">
+    <thead><tr><th>Binding</th><th>Subjects</th><th>Created</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono">RoleBinding/alice-config-reader</td>
+        <td>
+
+            <span class="kind-tag kind-user">User</span><a class="mono" href="subject-user-alice.html">alice</a>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:52:00Z" title="2025-01-10T09:52:00Z">1y</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <h2>Rules (1)</h2>
+  <p class="lede">
+    <strong>Verbs:</strong>
+    <span class="mono chip">get</span><span class="mono chip">list</span><span class="mono chip">watch</span>
+  </p>
+  <table class="dense">
+    <thead><tr><th>API group</th><th>Resources</th><th>Verbs</th></tr></thead>
+    <tbody>
+
+      <tr>
+        <td class="mono"><span class="mono chip dim" title="core API group (apiGroups: [&quot;&quot;])">core</span></td>
+        <td class="mono">configmaps, secrets</td>
+        <td class="mono">get, list, watch</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

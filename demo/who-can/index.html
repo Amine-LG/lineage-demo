@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Who can</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" class="active">Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<div class="subnav">
+  <a href="privileged.html">Privileged</a>
+  <a href="clusterroles.html">ClusterRoles</a>
+  <a href="roles.html">Roles</a>
+  <a href="permission-grants.html">Role grants</a>
+  <a href="cross-namespace.html">Cross-namespace</a>
+  <a href="who-can.html" class="active">Who can</a>
+  <a href="aggregated.html">Aggregated</a>
+</div>
+
+<section id="who-can-form">
+  <h1>Who can</h1>
+  <p class="lede">Reverse RBAC lookup from Lineage's cached read-only inventory. This does not shell out to <code>oc adm policy who-can</code>; Lineage expands real Groups into member users and flags ghosts, baseline, and unclassified rows.</p>
+
+  <form method="get" action="who-can.html#who-can-results" class="who-form">
+    <label>verb
+      <input name="verb" value="" list="verbs-list" placeholder="get, list, *…" autofocus>
+      <datalist id="verbs-list">
+        <option value="get"><option value="list"><option value="watch"><option value="create"><option value="update"><option value="patch"><option value="delete"><option value="deletecollection"><option value="*">
+      </datalist>
+    </label>
+    <label>resource
+      <input name="resource" value="" list="resources-list" placeholder="secrets, pods, pods/log…">
+      <datalist id="resources-list">
+        <option value="*"><option value="configmaps"><option value="deployments"><option value="imagestreams/layers"><option value="pods"><option value="rolebindings"><option value="roles"><option value="secrets"><option value="securitycontextconstraints"><option value="services">
+      </datalist>
+    </label>
+    <label>name <span class="dim">(optional)</span>
+      <input name="name" value="" placeholder="privileged, my-pod…">
+    </label>
+    <label>namespace <span class="dim">(optional)</span>
+      <input name="namespace" value="" list="namespaces-list" placeholder="blank searches all scopes">
+      <datalist id="namespaces-list">
+        <option value="ci"><option value="default"><option value="kube-system"><option value="mine-platform"><option value="nginx"><option value="openshift-authentication"><option value="openshift-config"><option value="shared-images">
+      </datalist>
+    </label>
+    <button type="submit">Run</button>
+  </form>
+
+
+    <div class="hints">
+      <p><strong>Try:</strong></p>
+      <ul>
+        <li><a href="who-can-namespace-payments-prod-resource-secrets-verb-list.html#who-can-results">list secrets in payments-prod</a></li>
+        <li><a href="who-can-namespace-payments-prod-resource-pods-log-verb-get.html#who-can-results">get pod logs in payments-prod</a></li>
+        <li><a href="who-can-name-privileged-resource-securitycontextconstraints-verb-use.html#who-can-results">use the privileged SCC</a></li>
+        <li><a href="who-can-resource-root-verb-root.html#who-can-results">* on * (cluster-admin reach)</a></li>
+      </ul>
+    </div>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

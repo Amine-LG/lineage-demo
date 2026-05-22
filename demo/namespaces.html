@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Namespaces</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" class="active">Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section id="namespaces-list">
+  <h1>Namespaces</h1>
+  <p class="lede">Classified from the OpenShift requester annotation and known platform name patterns. Click a namespace to see which signal decided.</p>
+  <p class="dim"><strong>Unclassified</strong> = no signal matched → review-worthy, not "bad". Often <code>oc create namespace</code> outside the install window.</p>
+
+
+  <div class="banner banner-warn">
+    <strong>1 deleted namespace still grants privilege.</strong>
+    <ul class="inline-list" style="margin-top:6px;">
+
+      <li class="mono">
+        <a href="namespace-legacy-pipelines.html">legacy-pipelines</a>
+        <span class="badge badge-priv">critical</span>
+
+      </li>
+
+    </ul>
+    <a href="identity-audit.html">Open Identity Audit →</a>
+  </div>
+
+
+  <div class="filterbar">
+    <a href="namespaces.html#namespaces-list" class="">All <span class="dim mono">8</span></a>
+    <span>·</span>
+    <a href="namespaces.html#namespaces-list" class="" title="Projects you personally requested (alice)">Mine <span class="dim mono">2</span></a>
+    <a href="namespaces.html#namespaces-list" class="active">Projects <span class="dim mono">3</span></a>
+    <a href="namespaces.html#namespaces-list" class="" title="Namespaces no signal could classify confidently — review and add a custom rule if needed">Unclassified <span class="dim mono">1</span></a>
+    <span>·</span>
+    <a href="namespaces.html#namespaces-list" class="">OpenShift <span class="dim mono">2</span></a>
+    <a href="namespaces.html#namespaces-list" class="">System <span class="dim mono">2</span></a>
+    <input type="search" class="search mono" placeholder="filter…"
+           data-filter-target="#ns-table" data-filter-counter="#ns-counter">
+  </div>
+
+  <p class="dim"><span id="ns-counter">3</span> namespaces shown (8 total)</p>
+
+
+  <table class="dense sortable" id="ns-table">
+    <thead><tr>
+      <th>Namespace</th><th>Created by</th><th>Category</th><th>Created</th><th>SAs</th><th>Pods</th><th>RoleBindings</th><th>Highest in-ns role</th><th>Privileged pods</th>
+    </tr></thead>
+    <tbody>
+
+      <tr >
+        <td class="mono">
+          <a href="namespace-shared-images.html">shared-images</a>
+        </td>
+        <td class="mono">image-admin</td>
+        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-10T09:30:00Z" title="2025-01-10T09:30:00Z">1y</td>
+        <td class="mono">1</td>
+        <td class="mono">0</td>
+        <td class="mono">2</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="namespace-ci.html">ci</a>
+        </td>
+        <td class="mono">alice</td>
+        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-10T09:25:00Z" title="2025-01-10T09:25:00Z">1y</td>
+        <td class="mono">2</td>
+        <td class="mono">1</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr class="row-priv">
+        <td class="mono">
+          <a href="namespace-mine-platform.html">mine-platform</a>
+        </td>
+        <td class="mono">alice</td>
+        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-10T09:20:00Z" title="2025-01-10T09:20:00Z">1y</td>
+        <td class="mono">2</td>
+        <td class="mono">3</td>
+        <td class="mono">6</td>
+        <td class="highest-role-cell" data-sort="4">
+
+            <span class="badge badge-priv role-badge">admin</span>
+
+
+        </td>
+        <td><span class="badge badge-priv">yes</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

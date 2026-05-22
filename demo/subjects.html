@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Subjects</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" class="active">Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" >Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<section id="subjects-list">
+  <h1>Subjects</h1>
+  <p class="lede">Users, Groups, and ServiceAccounts. Ghosts and latent users are flagged.</p>
+
+  <div class="toolbar">
+    <div class="segment-toggle">
+      <a href="subjects.html#subjects-list" class="active">Yours <span class="dim mono">19</span></a>
+      <a href="subjects.html#subjects-list" class="" title="Subjects in namespaces that no signal could classify confidently — review">Unclassified <span class="dim mono">0</span></a>
+      <a href="subjects.html#subjects-list" class="">Baseline <span class="dim mono">4</span></a>
+      <a href="subjects.html#subjects-list" class="">All <span class="dim mono">23</span></a>
+    </div>
+    <input type="search" class="search mono" placeholder="filter…"
+           data-filter-target="#subjects-table" data-filter-counter="#subjects-counter">
+  </div>
+
+  <div class="filterbar inline">
+    <a href="subjects.html#subjects-list" class="active">All kinds</a>
+    <a href="subjects.html#subjects-list" class="">Users</a>
+    <a href="subjects.html#subjects-list" class="">Groups</a>
+    <a href="subjects.html#subjects-list" class="">SAs</a>
+    <span class="dim">·</span>
+    <a href="subjects.html#subjects-list" class="">Ghosts only</a>
+    <a href="subjects.html#subjects-list" class="">Latent only</a>
+  </div>
+
+  <p class="dim"><span id="subjects-counter">19</span> subjects</p>
+
+
+  <table class="dense sortable" id="subjects-table">
+    <thead><tr>
+      <th>Name</th><th>Kind</th><th>Namespace</th><th>Origin</th><th>Created</th>
+    </tr></thead>
+    <tbody>
+
+      <tr class="row-warn">
+        <td class="mono">
+          <a href="subject-user-rhea-rehire.html">rhea-rehire</a>
+
+
+
+<span class="badge badge-warn">No ID</span>
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          no-identity
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-13T10:00:00Z" title="2025-01-13T10:00:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono">
+          <a href="subject-user-manual-approver.html">manual-approver</a>
+
+
+
+<span class="badge badge-warn">No ID</span>
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          no-identity
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-12T10:00:00Z" title="2025-01-12T10:00:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-user-mallory.html">mallory</a>
+
+
+
+
+<span class="badge badge-warn">phantom</span>
+
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          dev
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-11T10:00:00Z" title="2025-01-11T10:00:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr class="row-ghost">
+        <td class="mono">
+          <a href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">runner</a>
+          <span class="badge badge-warn">ghost</span>
+
+
+
+
+
+          <span class="badge badge-priv">resurrectable</span>
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-legacy-pipelines.html">legacy-pipelines</a></td>
+        <td class="subject-origin">
+          resurrectable
+
+
+            <span class="dim">critical · 2 surviving grants</span>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:48:00Z" title="2025-01-10T09:48:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr class="row-ghost">
+        <td class="mono">
+          <a href="subject-serviceaccount-pipeline-namespace-ci.html">pipeline</a>
+          <span class="badge badge-warn">ghost</span>
+
+
+
+
+
+          <span class="badge badge-priv">resurrectable</span>
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-ci.html">ci</a></td>
+        <td class="subject-origin">
+          resurrectable
+
+
+            <span class="dim">critical · 2 surviving grants</span>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:47:00Z" title="2025-01-10T09:47:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr class="row-ghost">
+        <td class="mono">
+          <a href="subject-user-future-hire-company-com.html">future-hire@company.com</a>
+          <span class="badge badge-warn">ghost</span>
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          ghost
+
+
+            <span class="dim">bound by <span class="mono">ghost-future-employee</span></span>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:46:00Z" title="2025-01-10T09:46:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-default-namespace-shared-images.html">default</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
+        <td class="subject-origin">
+          user
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:30:00Z" title="2025-01-10T09:30:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-ci.html">ci</a></td>
+        <td class="subject-origin">
+          user
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:27:00Z" title="2025-01-10T09:27:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-default-namespace-ci.html">default</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-ci.html">ci</a></td>
+        <td class="subject-origin">
+          user
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:25:00Z" title="2025-01-10T09:25:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-builder.html">builder</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
+        <td class="subject-origin">
+          user
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:22:00Z" title="2025-01-10T09:22:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-default-namespace-mine-platform.html">default</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
+        <td class="subject-origin">
+          user
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:20:00Z" title="2025-01-10T09:20:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-platform-admins.html">platform-admins</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          manual
+          <span class="dim">(1 members)</span>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:15:00Z" title="2025-01-10T09:15:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-engineers.html">engineers</a>
+
+
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          manual
+          <span class="dim">(2 members)</span>
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:10:00Z" title="2025-01-10T09:10:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-user-eve.html">eve</a>
+
+
+
+
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          dev
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:05:00Z" title="2025-01-10T09:05:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-user-alice.html">alice</a>
+
+
+
+
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          dev
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-10T09:00:00Z" title="2025-01-10T09:00:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono">
+          <a href="subject-user-kubeadmin.html">kubeadmin</a>
+
+
+
+<span class="badge badge-warn">No ID</span>
+
+<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          no-identity
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">
+          1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-system-serviceaccounts-mine-platform.html">system:serviceaccounts:mine-platform</a>
+
+<span class="badge badge-info" title="Synthesized by the apiserver — no Group object exists; membership is computed per-request from the authenticated identity.">virtual</span>
+
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          virtual/system group
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="None">
+
+        </td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono">
+          <a href="subject-user-nina-onboarding.html">nina-onboarding</a>
+
+
+<span class="badge badge-warn">latent</span>
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          latent (Group/engineers)
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="">
+
+        </td>
+      </tr>
+
+      <tr class="row-warn">
+        <td class="mono">
+          <a href="subject-user-tom-future-hire.html">tom-future-hire</a>
+
+
+<span class="badge badge-warn">latent</span>
+
+
+
+
+
+        </td>
+        <td><span class="kind-tag kind-user">User</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          latent (htpasswd)
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="">
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>

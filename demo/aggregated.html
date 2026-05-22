@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lineage — Aggregated roles</title>
+  <script>
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("lineage-theme") || "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/demo.css">
+  <script src="assets/demo.js" defer></script>
+</head>
+<body class="">
+<header>
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <svg class="logomark" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="18" cy="6" r="2.2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2.2" fill="currentColor"/>
+        <path d="M6 6 L12 18 L18 6 M6 6 L18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="brand-text">Lineage</span>
+    </a>
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="identity-audit.html" >Identity</a>
+      <a href="subjects.html" >Subjects</a>
+      <a href="namespaces.html" >Namespaces</a>
+      <a href="privileged.html" class="active">Permissions</a>
+      <a href="sccs.html" >SCCs</a>
+      <a href="images.html" >Images</a>
+      <a href="setup.html" >Setup</a>
+      <a href="#" class="refresh-btn static-disabled" title="Refresh cluster data (cache TTL: 5 min)">
+        <span class="refresh-icon" aria-hidden="true">↻</span>
+        <span>Static</span>
+      </a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">
+        <span class="theme-switch" aria-hidden="true"></span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </nav>
+    <div class="meta">read-only · v1.0</div>
+  </div>
+<div class="cluster-bar cluster-bar-mock">
+  <div class="cluster-bar-inner">
+
+
+        <span class="dot dot-mock"></span>
+        <span class="cluster-bar-text">static mock demo — no cluster connection, no <code>oc</code>, no credentials</span>
+
+
+  </div>
+</div>
+</header>
+<main>
+  <div class="static-demo-banner"><strong>Static mock demo.</strong> This page uses a small bundled sample dataset. It does not connect to a cluster, run <code>oc</code>, or read local credentials.</div>
+
+<div class="subnav">
+  <a href="privileged.html">Privileged</a>
+  <a href="clusterroles.html">ClusterRoles</a>
+  <a href="roles.html">Roles</a>
+  <a href="permission-grants.html">Role grants</a>
+  <a href="cross-namespace.html">Cross-namespace</a>
+  <a href="who-can.html">Who can</a>
+  <a href="aggregated.html" class="active">Aggregated</a>
+</div>
+
+<section>
+  <h1>Aggregated ClusterRoles</h1>
+  <p class="lede">
+    Roles whose <code>aggregationRule</code> selects component <code>ClusterRoles</code> by label.
+    The real ruleset is the live union — what you see below is what the role <em>actually grants right now</em>,
+    with each rule annotated by its source component.
+  </p>
+
+
+    <div class="toolbar">
+      <input type="search" class="search mono" placeholder="filter…"
+             data-filter-target="#aggregated-roles-table" data-filter-counter="#aggregated-counter">
+    </div>
+
+    <p class="dim"><span id="aggregated-counter">1</span> aggregated roles, newest first by creation date.</p>
+
+    <table class="dense sortable" id="aggregated-roles-table">
+      <thead><tr>
+        <th>Name</th><th>Created</th><th>Components</th><th>Computed rules</th><th>Selectors</th>
+      </tr></thead>
+      <tbody>
+
+        <tr>
+          <td class="mono"><a href="clusterrole-admin.html">admin</a></td>
+          <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+          <td class="mono" data-sort="2">2</td>
+          <td class="mono" data-sort="3">3</td>
+          <td class="mono dim">rbac.authorization.k8s.io/aggregate-to-admin=true</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+  <div class="section-divider">
+    <h2>Role details</h2>
+    <p class="dim">Expand a role to see its component ClusterRoles and computed rules.</p>
+  </div>
+
+  <div class="agg-detail-list">
+
+    <details class="agg-card">
+      <summary>
+        <div class="agg-summary-main">
+          <span class="mono agg-title">admin</span>
+          <span class="dim mono" title="2025-01-01T00:00:00Z">1y</span>
+        </div>
+        <div class="agg-summary-meta">
+          <span><strong>2</strong> components</span>
+          <span><strong>3</strong> computed rules</span>
+          <span class="mono dim">rbac.authorization.k8s.io/aggregate-to-admin=true</span>
+        </div>
+      </summary>
+
+      <div class="agg-details-body">
+        <div class="path-meta">
+          Open role detail:
+          <a class="mono" href="clusterrole-admin.html">admin</a>
+        </div>
+
+        <div class="path-meta">
+          Selectors:
+
+            <span class="mono">rbac.authorization.k8s.io/aggregate-to-admin=true</span>
+
+
+        </div>
+
+        <h3>Component ClusterRoles (2)</h3>
+
+        <table class="dense sortable no-filter">
+          <thead><tr>
+            <th>Component</th><th>Created</th><th>Rules</th><th>Matching labels</th>
+          </tr></thead>
+          <tbody>
+
+            <tr>
+              <td class="mono"><a href="clusterrole-admin-rbac.html">admin-rbac</a></td>
+              <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+              <td class="mono" data-sort="1">1</td>
+              <td class="mono dim">rbac.authorization.k8s.io/aggregate-to-admin=true</td>
+            </tr>
+
+            <tr>
+              <td class="mono"><a href="clusterrole-admin-workloads.html">admin-workloads</a></td>
+              <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+              <td class="mono" data-sort="2">2</td>
+              <td class="mono dim">rbac.authorization.k8s.io/aggregate-to-admin=true</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+        <h3>Computed rules (3)</h3>
+        <table class="dense rules-table sortable">
+          <thead><tr>
+            <th>API group</th><th>Resources</th><th>Verbs</th><th>From</th>
+          </tr></thead>
+          <tbody>
+
+            <tr>
+              <td class="mono"><span class="mono chip">apps</span></td>
+              <td class="mono">deployments</td>
+              <td class="mono"><span class="badge badge-priv" title="wildcard verb">*</span></td>
+              <td class="mono dim"><a href="clusterrole-admin-workloads.html">admin-workloads</a></td>
+            </tr>
+
+            <tr>
+              <td class="mono"><span class="mono chip dim" title="core API group (apiGroups: [&quot;&quot;])">core</span></td>
+              <td class="mono">pods, secrets, configmaps</td>
+              <td class="mono"><span class="badge badge-priv" title="wildcard verb">*</span></td>
+              <td class="mono dim"><a href="clusterrole-admin-workloads.html">admin-workloads</a></td>
+            </tr>
+
+            <tr>
+              <td class="mono"><span class="mono chip">rbac.authorization.k8s.io</span></td>
+              <td class="mono">roles, rolebindings</td>
+              <td class="mono">get, list, watch, create, update, patch, delete</td>
+              <td class="mono dim"><a href="clusterrole-admin-rbac.html">admin-rbac</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+  </div>
+
+</section>
+
+</main>
+<footer>
+  <div class="footer-content">
+    <strong>Lineage doesn't know:</strong>
+    LDAP/OIDC IdPs are not queried directly.
+    Audit logs (last-seen, last-used) unavailable.
+    <a href="setup.html">/setup</a> for permissions.
+    <span class="footer-right"><a href="https://github.com/Amine-LG/lineage" target="_blank">GitHub →</a></span>
+  </div>
+</footer>
+</body>
+</html>
