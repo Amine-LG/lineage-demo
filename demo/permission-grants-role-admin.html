@@ -180,9 +180,9 @@
 
   <div class="toolbar">
     <div class="filterbar inline">
-      <a href="permission-grants.html#role-grants-list" class="active">All roles</a>
+      <a href="permission-grants.html#role-grants-list" class="">All roles</a>
 
-      <a href="permission-grants-role-admin.html#role-grants-list" class="">admin</a>
+      <a href="permission-grants-role-admin.html#role-grants-list" class="active">admin</a>
 
       <a href="permission-grants-role-cluster-admin.html#role-grants-list" class="">cluster-admin</a>
 
@@ -205,196 +205,12 @@
            data-filter-target="#grants-table" data-filter-counter="#grants-counter">
   </div>
 
-  <p class="dim"><span id="grants-counter">13</span> grants</p>
+  <p class="dim"><span id="grants-counter">3</span> grants</p>
 
 
   <table class="dense sortable" id="grants-table">
     <thead><tr><th>Created</th><th>Role</th><th>Tier</th><th>Subject</th><th>Scope</th><th>Binding</th></tr></thead>
     <tbody>
-
-      <tr >
-        <td class="mono dim" data-sort="2025-03-10T09:10:00Z" title="2025-03-10T09:10:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="role-payments-prod-read-secrets.html">read-secrets</a>
-
-          <span class="dim mono">(Role)</span>
-        </td>
-        <td class="mono" data-sort="0">
-          custom
-        </td>
-        <td>
-          <span class="kind-tag kind-group">Group</span>
-          <a class="mono" href="subject-group-engineers.html">engineers</a>
-
-
-
-
-
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-payments-prod.html">payments-prod</a></td>
-        <td class="mono">RoleBinding/secret-readers</td>
-      </tr>
-
-      <tr >
-        <td class="mono dim" data-sort="2025-01-10T09:57:00Z" title="2025-01-10T09:57:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="clusterrole-system-image-builder.html">system:image-builder</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="0">
-          custom
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
-          <span class="dim mono">(ci)</span>
-
-
-
-
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td class="mono">RoleBinding/ci-builder-pushes-shared</td>
-      </tr>
-
-      <tr >
-        <td class="mono dim" data-sort="2025-01-10T09:56:00Z" title="2025-01-10T09:56:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="clusterrole-system-image-puller.html">system:image-puller</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="0">
-          custom
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-default-namespace-mine-platform.html">default</a>
-          <span class="dim mono">(mine-platform)</span>
-
-
-
-
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td class="mono">RoleBinding/mine-pulls-shared</td>
-      </tr>
-
-      <tr class="row-priv">
-        <td class="mono dim" data-sort="2025-01-10T09:55:00Z" title="2025-01-10T09:55:00Z">1y</td>
-        <td>
-
-            <a class="badge badge-priv" href="clusterrole-system-openshift-scc-anyuid.html">system:openshift:scc:anyuid</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="4">
-          admin
-
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-builder.html">builder</a>
-          <span class="dim mono">(mine-platform)</span>
-
-
-
-
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono">RoleBinding/mine-builder-use-anyuid</td>
-      </tr>
-
-      <tr >
-        <td class="mono dim" data-sort="2025-01-10T09:54:00Z" title="2025-01-10T09:54:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="clusterrole-edit.html">edit</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="3">
-          edit
-
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
-          <span class="dim mono">(ci)</span>
-
-
-
-
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono">RoleBinding/ci-builder-deploy-mine</td>
-      </tr>
-
-      <tr class="row-warn">
-        <td class="mono dim" data-sort="2025-01-10T09:53:00Z" title="2025-01-10T09:53:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="role-mine-platform-deployment-restarter.html">deployment-restarter</a>
-
-          <span class="dim mono">(Role)</span>
-        </td>
-        <td class="mono" data-sort="0">
-          custom
-        </td>
-        <td>
-          <span class="kind-tag kind-user">User</span>
-          <a class="mono" href="subject-user-manual-approver.html">manual-approver</a>
-
-
-
-
-<span class="badge badge-warn">No ID</span>
-
-
-        </td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono">RoleBinding/manual-approver-restarter</td>
-      </tr>
-
-      <tr >
-        <td class="mono dim" data-sort="2025-01-10T09:52:00Z" title="2025-01-10T09:52:00Z">1y</td>
-        <td>
-
-            <a class="mono" href="role-mine-platform-config-reader.html">config-reader</a>
-
-          <span class="dim mono">(Role)</span>
-        </td>
-        <td class="mono" data-sort="0">
-          custom
-        </td>
-        <td>
-          <span class="kind-tag kind-user">User</span>
-          <a class="mono" href="subject-user-alice.html">alice</a>
-
-
-
-
-
-
-<span class="badge badge-info" title="A line for this username exists in the HTPasswd Secret backing an HTPasswd IdP.">htpasswd-backed</span>
-        </td>
-        <td class="mono dim"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono">RoleBinding/alice-config-reader</td>
-      </tr>
 
       <tr class="row-priv">
         <td class="mono dim" data-sort="2025-01-10T09:51:00Z" title="2025-01-10T09:51:00Z">1y</td>
@@ -451,60 +267,6 @@
       </tr>
 
       <tr class="row-ghost">
-        <td class="mono dim" data-sort="2025-01-10T09:48:00Z" title="2025-01-10T09:48:00Z">1y</td>
-        <td>
-
-            <a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="5">
-          admin++
-
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-runner-namespace-legacy-pipelines.html">runner</a>
-          <span class="dim mono">(legacy-pipelines)</span>
-          <span class="badge badge-warn">ghost</span>
-
-
-
-
-
-        </td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono">ClusterRoleBinding/legacy-runner-admin</td>
-      </tr>
-
-      <tr class="row-ghost">
-        <td class="mono dim" data-sort="2025-01-10T09:47:00Z" title="2025-01-10T09:47:00Z">1y</td>
-        <td>
-
-            <a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="5">
-          admin++
-
-        </td>
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-          <a class="mono" href="subject-serviceaccount-pipeline-namespace-ci.html">pipeline</a>
-          <span class="dim mono">(ci)</span>
-          <span class="badge badge-warn">ghost</span>
-
-
-
-
-
-        </td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono">ClusterRoleBinding/ci-pipeline-clusteradmin</td>
-      </tr>
-
-      <tr class="row-ghost">
         <td class="mono dim" data-sort="2025-01-10T09:46:00Z" title="2025-01-10T09:46:00Z">1y</td>
         <td>
 
@@ -529,33 +291,6 @@
         </td>
         <td class="mono dim">cluster-wide</td>
         <td class="mono">ClusterRoleBinding/ghost-future-employee</td>
-      </tr>
-
-      <tr class="row-priv">
-        <td class="mono dim" data-sort="2025-01-10T09:45:00Z" title="2025-01-10T09:45:00Z">1y</td>
-        <td>
-
-            <a class="badge badge-priv" href="clusterrole-cluster-admin.html">cluster-admin</a>
-
-          <span class="dim mono">(ClusterRole)</span>
-        </td>
-        <td class="mono" data-sort="5">
-          admin++
-
-        </td>
-        <td>
-          <span class="kind-tag kind-group">Group</span>
-          <a class="mono" href="subject-group-platform-admins.html">platform-admins</a>
-
-
-
-
-
-
-
-        </td>
-        <td class="mono dim">cluster-wide</td>
-        <td class="mono">ClusterRoleBinding/platform-admins-cluster-admin</td>
       </tr>
 
     </tbody>

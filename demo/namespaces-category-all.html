@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lineage — Namespaces</title>
@@ -87,10 +86,10 @@
 
 
   <div class="filterbar">
-    <a href="namespaces-category-all.html#namespaces-list" class="">All <span class="dim mono">9</span></a>
+    <a href="namespaces-category-all.html#namespaces-list" class="active">All <span class="dim mono">9</span></a>
     <span>·</span>
     <a href="namespaces-category-mine.html#namespaces-list" class="" title="Projects you personally requested (alice)">Mine <span class="dim mono">3</span></a>
-    <a href="namespaces-category-project.html#namespaces-list" class="active">Projects <span class="dim mono">4</span></a>
+    <a href="namespaces-category-project.html#namespaces-list" class="">Projects <span class="dim mono">4</span></a>
     <a href="namespaces-category-unknown.html#namespaces-list" class="" title="Namespaces no signal could classify confidently — review and add a custom rule if needed">Unclassified <span class="dim mono">1</span></a>
     <span>·</span>
     <a href="namespaces-category-openshift.html#namespaces-list" class="">OpenShift <span class="dim mono">2</span></a>
@@ -99,7 +98,7 @@
            data-filter-target="#ns-table" data-filter-counter="#ns-counter">
   </div>
 
-  <p class="dim"><span id="ns-counter">4</span> namespaces shown (9 total)</p>
+  <p class="dim"><span id="ns-counter">9</span> namespaces shown (9 total)</p>
 
 
   <table class="dense sortable" id="ns-table">
@@ -119,6 +118,23 @@
         <td class="mono">0</td>
         <td class="mono">0</td>
         <td class="mono">1</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="namespace-nginx.html">nginx</a>
+        </td>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="unknown"><span class="badge badge-warn" title="No signal — review and add a custom rule if needed">unclassified</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-10T09:35:00Z" title="2025-01-10T09:35:00Z">1y</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
         <td class="highest-role-cell" data-sort="0">
           <span class="dim">—</span>
         </td>
@@ -177,6 +193,74 @@
 
         </td>
         <td><span class="badge badge-priv">yes</span></td>
+      </tr>
+
+      <tr class="row-baseline">
+        <td class="mono">
+          <a href="namespace-default.html">default</a>
+        </td>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="system"><span class="badge badge-sys" title="Kubernetes core">system</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">1</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr class="row-baseline">
+        <td class="mono">
+          <a href="namespace-kube-system.html">kube-system</a>
+        </td>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="system"><span class="badge badge-sys" title="Kubernetes core">system</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr class="row-baseline">
+        <td class="mono">
+          <a href="namespace-openshift-authentication.html">openshift-authentication</a>
+        </td>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="openshift"><span class="badge badge-sys" title="OpenShift platform">openshift</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">0</td>
+        <td class="mono">1</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
+      </tr>
+
+      <tr class="row-baseline">
+        <td class="mono">
+          <a href="namespace-openshift-config.html">openshift-config</a>
+        </td>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="openshift"><span class="badge badge-sys" title="OpenShift platform">openshift</span>
+  </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
+        </td>
+        <td>no</td>
       </tr>
 
     </tbody>

@@ -77,7 +77,7 @@
 
 
 <section id="clusterroles-list">
-  <h1>ClusterRoles (9)</h1>
+  <h1>ClusterRoles (7)</h1>
   <p class="lede">Every ClusterRole the current session can read, sorted by visible binding count. Roles with zero bindings may be unused, may be installed for future/operator-managed use, or — under a limited view — may be bound by ClusterRoleBindings the current user cannot read.</p>
 
 
@@ -85,12 +85,12 @@
   <div class="toolbar">
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#cr-table" data-filter-counter="#cr-counter">
-    <a class="toolbar-link" href="clusterroles-bound-1.html#clusterroles-list">
-      show only bound
+    <a class="toolbar-link" href="clusterroles.html#clusterroles-list">
+      show all
     </a>
   </div>
 
-  <p class="dim"><span id="cr-counter">9</span> roles</p>
+  <p class="dim"><span id="cr-counter">7</span> roles</p>
 
   <table class="dense sortable" id="cr-table">
     <thead><tr>
@@ -226,44 +226,6 @@
         </td>
         <td class="mono dim">
           pods, services
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono">
-          <a href="clusterrole-admin-rbac.html">admin-rbac</a>
-
-
-        </td>
-        <td class="mono" data-sort="0">0</td>
-        <td class="mono" data-sort="1">1</td>
-        <td class="mono dim">
-          create, delete, get, list, patch
-           <span class="dim">+2</span>
-        </td>
-        <td class="mono dim">
-          rolebindings, roles
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono">
-          <a href="clusterrole-admin-workloads.html">admin-workloads</a>
-
-
-        </td>
-        <td class="mono" data-sort="0">0</td>
-        <td class="mono" data-sort="2">2</td>
-        <td class="mono dim">
-          *
-
-        </td>
-        <td class="mono dim">
-          configmaps, deployments, pods, secrets
 
         </td>
         <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>

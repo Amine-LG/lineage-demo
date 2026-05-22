@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lineage — Namespaces</title>
@@ -90,16 +89,16 @@
     <a href="namespaces-category-all.html#namespaces-list" class="">All <span class="dim mono">9</span></a>
     <span>·</span>
     <a href="namespaces-category-mine.html#namespaces-list" class="" title="Projects you personally requested (alice)">Mine <span class="dim mono">3</span></a>
-    <a href="namespaces-category-project.html#namespaces-list" class="active">Projects <span class="dim mono">4</span></a>
+    <a href="namespaces-category-project.html#namespaces-list" class="">Projects <span class="dim mono">4</span></a>
     <a href="namespaces-category-unknown.html#namespaces-list" class="" title="Namespaces no signal could classify confidently — review and add a custom rule if needed">Unclassified <span class="dim mono">1</span></a>
     <span>·</span>
     <a href="namespaces-category-openshift.html#namespaces-list" class="">OpenShift <span class="dim mono">2</span></a>
-    <a href="namespaces-category-system.html#namespaces-list" class="">System <span class="dim mono">2</span></a>
+    <a href="namespaces-category-system.html#namespaces-list" class="active">System <span class="dim mono">2</span></a>
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#ns-table" data-filter-counter="#ns-counter">
   </div>
 
-  <p class="dim"><span id="ns-counter">4</span> namespaces shown (9 total)</p>
+  <p class="dim"><span id="ns-counter">2</span> namespaces shown (9 total)</p>
 
 
   <table class="dense sortable" id="ns-table">
@@ -108,50 +107,16 @@
     </tr></thead>
     <tbody>
 
-      <tr >
+      <tr class="row-baseline">
         <td class="mono">
-          <a href="namespace-payments-prod.html">payments-prod</a>
+          <a href="namespace-default.html">default</a>
         </td>
-        <td class="mono">alice</td>
-        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="system"><span class="badge badge-sys" title="Kubernetes core">system</span>
   </td>
-        <td class="mono dim" data-sort="2025-03-10T09:00:00Z" title="2025-03-10T09:00:00Z">1y</td>
-        <td class="mono">0</td>
-        <td class="mono">0</td>
-        <td class="mono">1</td>
-        <td class="highest-role-cell" data-sort="0">
-          <span class="dim">—</span>
-        </td>
-        <td>no</td>
-      </tr>
-
-      <tr >
-        <td class="mono">
-          <a href="namespace-shared-images.html">shared-images</a>
-        </td>
-        <td class="mono">image-admin</td>
-        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
-  </td>
-        <td class="mono dim" data-sort="2025-01-10T09:30:00Z" title="2025-01-10T09:30:00Z">1y</td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
         <td class="mono">1</td>
         <td class="mono">0</td>
-        <td class="mono">2</td>
-        <td class="highest-role-cell" data-sort="0">
-          <span class="dim">—</span>
-        </td>
-        <td>no</td>
-      </tr>
-
-      <tr >
-        <td class="mono">
-          <a href="namespace-ci.html">ci</a>
-        </td>
-        <td class="mono">alice</td>
-        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
-  </td>
-        <td class="mono dim" data-sort="2025-01-10T09:25:00Z" title="2025-01-10T09:25:00Z">1y</td>
-        <td class="mono">2</td>
-        <td class="mono">1</td>
         <td class="mono">0</td>
         <td class="highest-role-cell" data-sort="0">
           <span class="dim">—</span>
@@ -159,24 +124,21 @@
         <td>no</td>
       </tr>
 
-      <tr class="row-priv">
+      <tr class="row-baseline">
         <td class="mono">
-          <a href="namespace-mine-platform.html">mine-platform</a>
+          <a href="namespace-kube-system.html">kube-system</a>
         </td>
-        <td class="mono">alice</td>
-        <td data-sort="project"><span class="badge badge-info" title="OpenShift Project (carries openshift.io/requester)">project</span>
+        <td class="mono"><span class="dim">—</span></td>
+        <td data-sort="system"><span class="badge badge-sys" title="Kubernetes core">system</span>
   </td>
-        <td class="mono dim" data-sort="2025-01-10T09:20:00Z" title="2025-01-10T09:20:00Z">1y</td>
-        <td class="mono">2</td>
-        <td class="mono">3</td>
-        <td class="mono">6</td>
-        <td class="highest-role-cell" data-sort="4">
-
-            <span class="badge badge-priv role-badge">admin</span>
-
-
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">1y</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="mono">0</td>
+        <td class="highest-role-cell" data-sort="0">
+          <span class="dim">—</span>
         </td>
-        <td><span class="badge badge-priv">yes</span></td>
+        <td>no</td>
       </tr>
 
     </tbody>

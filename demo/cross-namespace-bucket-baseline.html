@@ -80,110 +80,24 @@
   <h1>Cross-namespace bindings</h1>
   <p class="lede">RoleBindings whose subject is a <code>ServiceAccount</code> in a different namespace than the binding. These paths are useful to review because a CI or automation namespace can hold access inside a separate application namespace.</p>
 
-  <p class="dim">Below: <strong><a href="#image-pullers">Image-puller / image-builder grants ↓</a></strong> (2)</p>
-
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="cross-namespace-bucket-yours.html#cross-namespace-bindings" class="active">Yours <span class="dim mono">3</span></a>
+      <a href="cross-namespace-bucket-yours.html#cross-namespace-bindings" class="">Yours <span class="dim mono">3</span></a>
       <a href="cross-namespace-bucket-unknown.html#cross-namespace-bindings" class="" title="Cross-namespace bindings whose subject or binding lives in an unclassified namespace — review">Unclassified <span class="dim mono">0</span></a>
-      <a href="cross-namespace-bucket-baseline.html#cross-namespace-bindings" class="">Baseline <span class="dim mono">0</span></a>
+      <a href="cross-namespace-bucket-baseline.html#cross-namespace-bindings" class="active">Baseline <span class="dim mono">0</span></a>
       <a href="cross-namespace-bucket-all.html#cross-namespace-bindings" class="">All <span class="dim mono">3</span></a>
     </div>
   </div>
 
-
-  <table class="dense sortable">
-    <thead><tr><th>SA namespace</th><th>ServiceAccount</th><th>→ binding namespace</th><th>Role</th><th>Created</th></tr></thead>
-    <tbody>
-
-      <tr >
-        <td class="mono"><a href="namespace-ci.html">ci</a></td>
-        <td class="mono">
-          <a href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
-        </td>
-        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td>
-
-            <a class="mono" href="clusterrole-system-image-builder.html">system:image-builder</a>
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-10T09:57:00Z" title="2025-01-10T09:57:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td class="mono">
-          <a href="subject-serviceaccount-default-namespace-mine-platform.html">default</a>
-        </td>
-        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td>
-
-            <a class="mono" href="clusterrole-system-image-puller.html">system:image-puller</a>
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-10T09:56:00Z" title="2025-01-10T09:56:00Z">1y</td>
-      </tr>
-
-      <tr >
-        <td class="mono"><a href="namespace-ci.html">ci</a></td>
-        <td class="mono">
-          <a href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
-        </td>
-        <td class="mono"><a href="namespace-mine-platform.html">mine-platform</a></td>
-        <td>
-
-            <a class="mono" href="clusterrole-edit.html">edit</a>
-
-        </td>
-        <td class="mono dim" data-sort="2025-01-10T09:54:00Z" title="2025-01-10T09:54:00Z">1y</td>
-      </tr>
-
-    </tbody>
-  </table>
-
+  <p class="dim">No cross-namespace bindings in this view.</p>
 </section>
 
 <section id="image-pullers">
   <h2>Image-puller / image-builder grants</h2>
   <p class="lede">OpenShift's <code>system:image-puller</code> and <code>system:image-builder</code> roles allow pods to pull and push images via the internal registry. The default <code>system:serviceaccounts:&lt;ns&gt;</code> group binding is filtered out — anything else is worth a look. Cross-namespace grants enable silent image access between projects.</p>
 
-
-  <table class="dense sortable">
-    <thead><tr><th>Subject</th><th>Namespace</th><th>Role</th><th>Cross-NS</th><th>Created</th></tr></thead>
-    <tbody>
-
-      <tr class="row-warn">
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-
-            <a class="mono" href="subject-serviceaccount-builder-namespace-ci.html">builder</a>
-
-          <span class="dim mono">(ci)</span>
-        </td>
-        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td class="mono"><a href="clusterrole-system-image-builder.html">system:image-builder</a></td>
-        <td><span class="badge badge-warn">cross-ns</span></td>
-        <td class="mono dim" data-sort="2025-01-10T09:57:00Z" title="2025-01-10T09:57:00Z">1y</td>
-      </tr>
-
-      <tr class="row-warn">
-        <td>
-          <span class="kind-tag kind-serviceaccount">ServiceAccount</span>
-
-            <a class="mono" href="subject-serviceaccount-default-namespace-mine-platform.html">default</a>
-
-          <span class="dim mono">(mine-platform)</span>
-        </td>
-        <td class="mono"><a href="namespace-shared-images.html">shared-images</a></td>
-        <td class="mono"><a href="clusterrole-system-image-puller.html">system:image-puller</a></td>
-        <td><span class="badge badge-warn">cross-ns</span></td>
-        <td class="mono dim" data-sort="2025-01-10T09:56:00Z" title="2025-01-10T09:56:00Z">1y</td>
-      </tr>
-
-    </tbody>
-  </table>
-
+  <p class="dim">No non-default image-puller grants in this view.</p>
 </section>
 
 </main>

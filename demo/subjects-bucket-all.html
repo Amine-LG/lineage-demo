@@ -70,17 +70,17 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="subjects-bucket-yours.html#subjects-list" class="active">Yours <span class="dim mono">19</span></a>
+      <a href="subjects-bucket-yours.html#subjects-list" class="">Yours <span class="dim mono">19</span></a>
       <a href="subjects-bucket-unknown.html#subjects-list" class="" title="Subjects in namespaces that no signal could classify confidently — review">Unclassified <span class="dim mono">0</span></a>
       <a href="subjects-bucket-baseline.html#subjects-list" class="">Baseline <span class="dim mono">4</span></a>
-      <a href="subjects-bucket-all.html#subjects-list" class="">All <span class="dim mono">23</span></a>
+      <a href="subjects-bucket-all.html#subjects-list" class="active">All <span class="dim mono">23</span></a>
     </div>
     <input type="search" class="search mono" placeholder="filter…"
            data-filter-target="#subjects-table" data-filter-counter="#subjects-counter">
   </div>
 
   <div class="filterbar inline">
-    <a href="subjects-bucket-yours.html#subjects-list" class="active">All kinds</a>
+    <a href="subjects-bucket-all.html#subjects-list" class="active">All kinds</a>
     <a href="subjects.html#subjects-list" class="">Users</a>
     <a href="subjects.html#subjects-list" class="">Groups</a>
     <a href="subjects.html#subjects-list" class="">SAs</a>
@@ -89,7 +89,7 @@
     <a href="subjects.html#subjects-list" class="">Latent only</a>
   </div>
 
-  <p class="dim"><span id="subjects-counter">19</span> subjects</p>
+  <p class="dim"><span id="subjects-counter">23</span> subjects</p>
 
 
   <table class="dense sortable" id="subjects-table">
@@ -464,6 +464,30 @@
         </td>
       </tr>
 
+      <tr >
+        <td class="mono">
+          <a href="subject-serviceaccount-default-namespace-default.html">default</a>
+
+
+
+
+
+
+
+          <span class="badge badge-sys">baseline</span>
+        </td>
+        <td><span class="kind-tag kind-serviceaccount">ServiceAccount</span></td>
+        <td class="mono"><a href="namespace-default.html">default</a></td>
+        <td class="subject-origin">
+          baseline
+
+
+        </td>
+        <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">
+          1y
+        </td>
+      </tr>
+
       <tr class="row-warn">
         <td class="mono">
           <a href="subject-user-kubeadmin.html">kubeadmin</a>
@@ -485,6 +509,78 @@
         </td>
         <td class="mono dim" data-sort="2025-01-01T00:00:00Z" title="2025-01-01T00:00:00Z">
           1y
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-system-authenticated.html">system:authenticated</a>
+
+<span class="badge badge-info" title="Synthesized by the apiserver — no Group object exists; membership is computed per-request from the authenticated identity.">virtual</span>
+
+
+
+
+
+          <span class="badge badge-sys">baseline</span>
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          virtual/system group
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="None">
+
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-system-authenticated-oauth.html">system:authenticated:oauth</a>
+
+<span class="badge badge-info" title="Synthesized by the apiserver — no Group object exists; membership is computed per-request from the authenticated identity.">virtual</span>
+
+
+
+
+
+          <span class="badge badge-sys">baseline</span>
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          virtual/system group
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="None">
+
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono">
+          <a href="subject-group-system-masters.html">system:masters</a>
+
+<span class="badge badge-info" title="Synthesized by the apiserver — no Group object exists; membership is computed per-request from the authenticated identity.">virtual</span>
+
+
+
+
+
+          <span class="badge badge-sys">baseline</span>
+        </td>
+        <td><span class="kind-tag kind-group">Group</span></td>
+        <td class="mono">—</td>
+        <td class="subject-origin">
+          virtual/system group
+
+
+        </td>
+        <td class="mono dim" data-sort="" title="None">
+
         </td>
       </tr>
 

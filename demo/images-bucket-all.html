@@ -70,10 +70,10 @@
 
   <div class="toolbar">
     <div class="segment-toggle">
-      <a href="images-bucket-yours.html#images-overview" class="active" title="Project image refs and ImageStreams">Yours <span class="dim mono">6</span></a>
+      <a href="images-bucket-yours.html#images-overview" class="" title="Project image refs and ImageStreams">Yours <span class="dim mono">6</span></a>
       <a href="images-bucket-unknown.html#images-overview" class="" title="Image refs and ImageStreams tied to unclassified namespaces — review">Unclassified <span class="dim mono">0</span></a>
       <a href="images-bucket-baseline.html#images-overview" class="" title="Baseline image refs and ImageStreams">Baseline <span class="dim mono">1</span></a>
-      <a href="images-bucket-all.html#images-overview" class="" title="All image refs and ImageStreams">All <span class="dim mono">7</span></a>
+      <a href="images-bucket-all.html#images-overview" class="active" title="All image refs and ImageStreams">All <span class="dim mono">7</span></a>
     </div>
   </div>
 </section>
@@ -186,12 +186,12 @@
 
 
 <section id="images-list">
-  <h2>Images (4 of 5)</h2>
+  <h2>Images (5 of 5)</h2>
   <div class="toolbar">
     <input type="search" class="search mono" placeholder="filter image, registry, namespace…"
            data-filter-target="#images-table" data-filter-counter="#images-counter">
   </div>
-  <p class="dim"><span id="images-counter">4</span> matching</p>
+  <p class="dim"><span id="images-counter">5</span> matching</p>
   <table class="dense sortable" id="images-table">
     <thead><tr>
       <th>Image</th><th>Registry</th><th>Pods</th><th>Used in</th>
@@ -248,6 +248,20 @@
         <td class="mono">
 
           <a href="namespace-mine-platform.html">mine-platform</a>
+
+        </td>
+      </tr>
+
+      <tr >
+        <td class="mono image-cell" title="quay.io/openshift-release-dev/ocp-release@sha256:fake"><a href="image-ref-quay-io-openshift-release-dev-ocp-release-sha256-fake.html">quay.io/openshift-release-dev/ocp-release@sha256:fake</a></td>
+        <td class="mono">quay.io
+          <span class="badge badge-sys">RH</span>
+
+        </td>
+        <td class="mono" data-sort="1">1</td>
+        <td class="mono">
+
+          <a href="namespace-openshift-authentication.html">openshift-authentication</a>
 
         </td>
       </tr>
